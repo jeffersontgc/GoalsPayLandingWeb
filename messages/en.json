@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "title": "GoalsPay — Reach your goals 3x faster",
+    "description": "Savings app with visual goals, streaks and achievements. 100% private: your data stays on your phone. 14 LATAM currencies. Free, no ads.",
+    "ogTitle": "GoalsPay · Save. Progress. Achieve.",
+    "ogDescription": "The goals app that turns your savings into visible progress."
+  },
+  "nav": {
+    "features": "Features",
+    "modes": "Modes",
+    "privacy": "Privacy",
+    "faq": "FAQ",
+    "download": "Download",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle theme",
+    "toggleLang": "Change language"
+  },
+  "hero": {
+    "kicker": "Save. Progress. Achieve.",
+    "title": "Reach your goals 3x faster. Without handing your bank to anyone.",
+    "subtitle": "GoalsPay is the savings app with streaks, achievements and real privacy. Your money stays on your phone — only.",
+    "ctaPrimary": "Download APK",
+    "ctaPrimaryHint": "Version 1.0 · Android 8+",
+    "ctaPlayStore": "Coming soon on Play Store",
+    "ctaAppStore": "Coming soon on App Store",
+    "screenAlt": "GoalsPay main screen showing goals and progress"
+  },
+  "trust": {
+    "private": "100% private",
+    "free": "Free, no ads",
+    "noLogin": "No signup",
+    "currencies": "14 LATAM currencies",
+    "backup": "Google Drive backup"
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Built so saving stops being boring",
+    "subtitle": "Every feature is designed to keep your motivation alive, not to surveil your account.",
+    "items": {
+      "photoGoals": {
+        "title": "Goals with a photo",
+        "desc": "Set the photo of the product, trip or dream you're saving for. Your brain cheers what it sees."
+      },
+      "streaks": {
+        "title": "Daily streaks",
+        "desc": "Every deposit counts. Build an unstoppable streak and don't drop it."
+      },
+      "achievements": {
+        "title": "12 unlockable achievements",
+        "desc": "From First step to Unstoppable. Gamification that actually works."
+      },
+      "projection": {
+        "title": "Smart projection",
+        "desc": "We tell you how much you need per week or per day to hit your target date."
+      },
+      "widget": {
+        "title": "Android widget",
+        "desc": "See your progress right from your home screen. No app to open."
+      },
+      "privacy": {
+        "title": "Data on your phone",
+        "desc": "No server. No account. Optional backup to your own Google Drive."
+      },
+      "currencies": {
+        "title": "14 LATAM currencies",
+        "desc": "USD, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG, CLP and EUR."
+      }
+    }
+  },
+  "modes": {
+    "eyebrow": "Two apps in one",
+    "title": "Switch between Goals and Finance with a single tap",
+    "subtitle": "Two dedicated views for two different ways to think about your money.",
+    "goals": {
+      "tab": "Goals mode",
+      "title": "Save for what matters",
+      "desc": "Create goals with amount, date and photo. Deposit whenever you can and watch the bar grow.",
+      "bullets": [
+        "Category, target date and product photo",
+        "Deposit history with notes and photos",
+        "Automatic weekly and daily projection"
+      ]
+    },
+    "finance": {
+      "tab": "Finance mode",
+      "title": "Manage incomes and fixed expenses",
+      "desc": "Track your recurring incomes and monthly expenses. See how much you have left.",
+      "bullets": [
+        "Fixed incomes by category",
+        "Monthly expenses with reminders",
+        "Smart suggestion of how much you can deposit to your goals"
+      ]
+    }
+  },
+  "achievements": {
+    "eyebrow": "Motivation that works",
+    "title": "Every deposit unlocks something",
+    "subtitle": "12 unlockable achievements and streaks up to 30 days. The brain cheers what it sees.",
+    "streakLabel": "Current streak",
+    "streakDays": "{count, plural, one {# day} other {# days}}",
+    "list": {
+      "first_goal": "First step",
+      "first_deposit": "Start saving",
+      "five_deposits": "On a roll",
+      "twenty_deposits": "Consistency",
+      "fifty_deposits": "Veteran",
+      "streak_3": "Three days",
+      "streak_7": "Perfect week",
+      "streak_30": "Unstoppable",
+      "first_completion": "Goal achieved",
+      "five_completions": "Collector",
+      "multi_goals": "Diversified",
+      "saver_1000": "Saver"
+    }
+  },
+  "privacy": {
+    "eyebrow": "Real privacy",
+    "title": "Your data never leaves your phone. Period.",
+    "subtitle": "GoalsPay doesn't need your bank, your email, or your password. It works offline.",
+    "bullets": [
+      "No login, no server, no tracking",
+      "Optional backup to YOUR own Google Drive",
+      "Lock with fingerprint or Face ID"
+    ],
+    "cta": "Read privacy policy"
+  },
+  "faq": {
+    "eyebrow": "Frequently asked",
+    "title": "What people ask us",
+    "items": [
+      {
+        "q": "Is it really free?",
+        "a": "Yes. The current version is free and ad-free. If we ever launch a premium plan, what you have today stays free."
+      },
+      {
+        "q": "Do I need to connect my bank?",
+        "a": "No. GoalsPay never connects to any bank. You decide what to deposit and the app tracks it."
+      },
+      {
+        "q": "Is my currency supported?",
+        "a": "We support 14 currencies: USD, EUR, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG and CLP."
+      },
+      {
+        "q": "What if I change phones?",
+        "a": "You can enable backup to your own Google Drive and restore your data on the new device."
+      },
+      {
+        "q": "Does it work offline?",
+        "a": "Yes. All information lives on your phone. You only need the internet if you enable backup."
+      },
+      {
+        "q": "When will it be on Play Store and App Store?",
+        "a": "Publication is in progress. For now you can download the APK directly from here."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Start saving today in under 30 seconds.",
+    "subtitle": "Download the APK, open the app, create your first goal. That simple.",
+    "cta": "Download APK",
+    "hint": "No signup · No bank connection · No ads"
+  },
+  "footer": {
+    "tagline": "Save. Progress. Achieve.",
+    "madeIn": "© {year} GoalsPay. Made with love in LATAM.",
+    "groups": {
+      "product": "Product",
+      "legal": "Legal",
+      "follow": "Follow"
+    },
+    "links": {
+      "features": "Features",
+      "modes": "Modes",
+      "faq": "FAQ",
+      "download": "Download",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  },
+  "downloadToast": {
+    "missingTitle": "Download not available yet",
+    "missingBody": "The APK will be available very soon. Check back in a few days."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: 2026-05-18",
+      "body": "GoalsPay does not collect, store or transmit your financial data to any server. Every piece of information you record (goals, deposits, incomes, expenses) lives exclusively on your device. The only exchange with external services happens when you opt in to the Google Drive backup — and it goes straight to YOUR account, not ours. We don't use identifying analytics, we don't ship ad SDKs, we don't share data with third parties. Questions? Email contact@goalspay.app."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "updated": "Last updated: 2026-05-18",
+      "body": "GoalsPay is offered as-is, free and without warranties. It is not a substitute for professional financial advice. You are responsible for your saving decisions. The app may stop receiving updates at any time. Questions? Email contact@goalspay.app."
+    }
+  }
+}

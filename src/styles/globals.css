@@ -1,0 +1,173 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --color-bg-base: #07091a;
+  --color-bg-surface: #0b1120;
+  --color-bg-surface-alt: #111827;
+  --color-bg-surface-2: #1e293b;
+  --color-bg-elevated: rgba(255, 255, 255, 0.04);
+  --color-bg-elevated-2: rgba(255, 255, 255, 0.06);
+
+  --color-border-soft: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
+
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+
+  --color-accent-300: #86efac;
+  --color-accent-400: #4ade80;
+  --color-accent-500: #22d3a6;
+  --color-accent-600: #15a87f;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+
+  --shadow-glow-brand: 0 0 40px rgba(99, 102, 241, 0.45);
+  --shadow-glow-accent: 0 0 40px rgba(34, 211, 166, 0.45);
+  --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-image:
+      radial-gradient(1200px 600px at 20% 0%, rgba(99, 102, 241, 0.18), transparent 60%),
+      radial-gradient(900px 500px at 80% 10%, rgba(34, 211, 166, 0.12), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-400);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.45);
+    color: var(--color-text-primary);
+  }
+
+  .light {
+    color-scheme: light;
+    --color-bg-base: #f8fafc;
+    --color-bg-surface: #ffffff;
+    --color-bg-surface-alt: #f1f5f9;
+    --color-bg-surface-2: #e2e8f0;
+    --color-bg-elevated: #ffffff;
+    --color-bg-elevated-2: #ffffff;
+    --color-border-soft: #e2e8f0;
+    --color-border-strong: #cbd5e1;
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #475569;
+    --color-text-muted: #64748b;
+    --color-text-inverse: #ffffff;
+  }
+
+  .light body {
+    background-image:
+      radial-gradient(1000px 500px at 20% 0%, rgba(99, 102, 241, 0.12), transparent 60%),
+      radial-gradient(800px 400px at 80% 10%, rgba(34, 211, 166, 0.08), transparent 60%);
+  }
+}
+
+@layer components {
+  .glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--color-border-soft);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .light .glass {
+    background: linear-gradient(180deg, #ffffff, #ffffffcc);
+    border: 1px solid var(--color-border-soft);
+    backdrop-filter: blur(16px);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at top, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at top, black 0%, transparent 70%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #a5b4fc 0%, #22d3a6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section {
+    padding-block: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-block: 8rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

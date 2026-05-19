@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "title": "GoalsPay — Alcanza tus metas 3x más rápido",
+    "description": "App de ahorro con metas visuales, rachas y logros. 100% privada: tus datos viven solo en tu teléfono. 14 monedas LATAM. Gratis, sin anuncios.",
+    "ogTitle": "GoalsPay · Ahorra. Progresa. Logra.",
+    "ogDescription": "La app de metas que convierte tu ahorro en progreso visible."
+  },
+  "nav": {
+    "features": "Características",
+    "modes": "Modos",
+    "privacy": "Privacidad",
+    "faq": "FAQ",
+    "download": "Descargar",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "toggleTheme": "Cambiar tema",
+    "toggleLang": "Cambiar idioma"
+  },
+  "hero": {
+    "kicker": "Ahorra. Progresa. Logra.",
+    "title": "Alcanza tus metas 3x más rápido. Sin entregar tu banco a nadie.",
+    "subtitle": "GoalsPay es la app de ahorro con rachas, logros y privacidad real. Tu dinero vive solo en tu teléfono.",
+    "ctaPrimary": "Descargar APK",
+    "ctaPrimaryHint": "Versión 1.0 · Android 8+",
+    "ctaPlayStore": "Próximamente en Play Store",
+    "ctaAppStore": "Próximamente en App Store",
+    "screenAlt": "Pantalla principal de GoalsPay mostrando metas y progreso"
+  },
+  "trust": {
+    "private": "100% privado",
+    "free": "Gratis sin anuncios",
+    "noLogin": "Sin registro",
+    "currencies": "14 monedas LATAM",
+    "backup": "Backup a Google Drive"
+  },
+  "features": {
+    "eyebrow": "Características",
+    "title": "Diseñado para que ahorrar deje de ser aburrido",
+    "subtitle": "Cada función está pensada para mantener viva tu motivación, no para vigilar tu cuenta.",
+    "items": {
+      "photoGoals": {
+        "title": "Metas con foto",
+        "desc": "Pon la foto del producto, viaje o sueño que estás ahorrando. Tu cerebro celebra lo que ve."
+      },
+      "streaks": {
+        "title": "Rachas diarias",
+        "desc": "Cada abono cuenta. Construye una racha imparable y no la sueltes."
+      },
+      "achievements": {
+        "title": "12 logros desbloqueables",
+        "desc": "De Primer paso a Imparable. La gamificación que sí funciona."
+      },
+      "projection": {
+        "title": "Proyección inteligente",
+        "desc": "Te decimos cuánto necesitas por semana o por día para llegar a tu fecha objetivo."
+      },
+      "widget": {
+        "title": "Widget para Android",
+        "desc": "Mira tu progreso desde la pantalla de inicio. Sin abrir la app."
+      },
+      "privacy": {
+        "title": "Datos en tu teléfono",
+        "desc": "No hay servidor. No hay cuenta. Backup opcional a tu propio Google Drive."
+      },
+      "currencies": {
+        "title": "14 monedas LATAM",
+        "desc": "USD, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG, CLP y EUR."
+      }
+    }
+  },
+  "modes": {
+    "eyebrow": "Dos apps en una",
+    "title": "Cambia entre Metas y Finanzas con un solo toque",
+    "subtitle": "Dos vistas dedicadas para dos formas distintas de pensar tu dinero.",
+    "goals": {
+      "tab": "Modo Metas",
+      "title": "Ahorra para lo que importa",
+      "desc": "Crea metas con monto, fecha y foto. Abona cuando puedas y mira la barra subir.",
+      "bullets": [
+        "Categoría, fecha objetivo y foto del producto",
+        "Historial de abonos con notas y fotos",
+        "Proyección semanal y diaria automática"
+      ]
+    },
+    "finance": {
+      "tab": "Modo Finanzas",
+      "title": "Controla ingresos y gastos fijos",
+      "desc": "Registra tus ingresos recurrentes y gastos del mes. Mira cuánto te queda libre.",
+      "bullets": [
+        "Ingresos fijos por categoría",
+        "Gastos del mes con recordatorios",
+        "Sugerencia automática de cuánto puedes abonar a tus metas"
+      ]
+    }
+  },
+  "achievements": {
+    "eyebrow": "Motivación que sí funciona",
+    "title": "Cada abono te acerca a un logro",
+    "subtitle": "12 logros desbloqueables y rachas de hasta 30 días. El cerebro celebra lo que se ve.",
+    "streakLabel": "Racha actual",
+    "streakDays": "{count, plural, one {# día} other {# días}}",
+    "list": {
+      "first_goal": "Primer paso",
+      "first_deposit": "Empezar a ahorrar",
+      "five_deposits": "En racha",
+      "twenty_deposits": "Constancia",
+      "fifty_deposits": "Veterano",
+      "streak_3": "Tres días",
+      "streak_7": "Semana perfecta",
+      "streak_30": "Imparable",
+      "first_completion": "Meta cumplida",
+      "five_completions": "Coleccionista",
+      "multi_goals": "Diversificado",
+      "saver_1000": "Ahorrador"
+    }
+  },
+  "privacy": {
+    "eyebrow": "Privacidad real",
+    "title": "Tus datos no salen de tu teléfono. Punto.",
+    "subtitle": "GoalsPay no necesita tu banco, ni un correo, ni una contraseña. Funciona sin conexión.",
+    "bullets": [
+      "Sin login, sin servidor, sin tracking",
+      "Backup opcional a TU propio Google Drive",
+      "Bloqueo con huella o Face ID"
+    ],
+    "cta": "Leer política de privacidad"
+  },
+  "faq": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Lo que la gente nos pregunta",
+    "items": [
+      {
+        "q": "¿Es realmente gratis?",
+        "a": "Sí. La versión actual es gratis y sin anuncios. Si en el futuro lanzamos un plan premium, las funciones que tienes hoy seguirán siendo gratis."
+      },
+      {
+        "q": "¿Necesito conectar mi banco?",
+        "a": "No. GoalsPay no se conecta a ningún banco. Tú decides cuánto abonas y la app lleva el seguimiento."
+      },
+      {
+        "q": "¿Está disponible en mi moneda?",
+        "a": "Soportamos 14 monedas: USD, EUR, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG y CLP."
+      },
+      {
+        "q": "¿Qué pasa si cambio de teléfono?",
+        "a": "Puedes activar el backup a tu propio Google Drive y restaurar tus datos en el nuevo dispositivo."
+      },
+      {
+        "q": "¿Funciona sin internet?",
+        "a": "Sí. Toda la información vive en tu teléfono. Solo necesitas internet si activas el backup."
+      },
+      {
+        "q": "¿Cuándo estará en Play Store y App Store?",
+        "a": "Estamos en proceso de publicación. Mientras tanto puedes descargar el APK directo desde aquí."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Empieza a ahorrar hoy en menos de 30 segundos.",
+    "subtitle": "Descarga el APK, abre la app, crea tu primera meta. Así de simple.",
+    "cta": "Descargar APK",
+    "hint": "Sin registro · Sin conexión bancaria · Sin anuncios"
+  },
+  "footer": {
+    "tagline": "Ahorra. Progresa. Logra.",
+    "madeIn": "© {year} GoalsPay. Hecho con amor en LATAM.",
+    "groups": {
+      "product": "Producto",
+      "legal": "Legal",
+      "follow": "Seguir"
+    },
+    "links": {
+      "features": "Características",
+      "modes": "Modos",
+      "faq": "FAQ",
+      "download": "Descargar",
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    }
+  },
+  "downloadToast": {
+    "missingTitle": "Descarga no disponible aún",
+    "missingBody": "El APK estará disponible muy pronto. Vuelve en unos días."
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de Privacidad",
+      "updated": "Última actualización: 2026-05-18",
+      "body": "GoalsPay no recopila, almacena ni transmite tus datos financieros a ningún servidor. Toda la información que registres (metas, abonos, ingresos, gastos) vive exclusivamente en tu dispositivo. El único intercambio con servicios externos ocurre cuando tú activas el backup opcional a Google Drive — y va directo a TU cuenta, no a la nuestra. No usamos analíticas que te identifiquen, no integramos SDKs de publicidad, no compartimos datos con terceros. Si tienes dudas, escríbenos a contacto@goalspay.app."
+    },
+    "terms": {
+      "title": "Términos de Uso",
+      "updated": "Última actualización: 2026-05-18",
+      "body": "GoalsPay se ofrece tal cual, gratis y sin garantías. No reemplaza el consejo de un profesional financiero. Eres responsable de tus decisiones de ahorro. La app puede dejar de actualizarse en cualquier momento. Si tienes dudas, escríbenos a contacto@goalspay.app."
+    }
+  }
+}
