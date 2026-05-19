@@ -21,7 +21,7 @@ export function DownloadButton({
   const t = useTranslations();
   const [toastOpen, setToastOpen] = React.useState(false);
 
-  const hasUrl = Boolean(publicEnv.NEXT_PUBLIC_APK_URL);
+  const hasUrl = Boolean(publicEnv.APK_URL);
   const text = label ?? t("nav.download");
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
@@ -64,7 +64,7 @@ export function DownloadButton({
           "pointer-events-none fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-2xl border border-white/10 bg-[color:var(--color-bg-surface)]/95 px-5 py-3 text-sm shadow-2xl backdrop-blur transition-all duration-300",
           toastOpen
             ? "translate-y-0 opacity-100"
-            : "pointer-events-none translate-y-3 opacity-0"
+            : "pointer-events-none translate-y-3 opacity-0",
         )}
       >
         <p className="font-semibold">{t("downloadToast.missingTitle")}</p>

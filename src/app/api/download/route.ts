@@ -4,16 +4,15 @@ import { publicEnv } from "@/lib/env";
 export const dynamic = "force-dynamic";
 
 export function GET() {
-  const url = publicEnv.NEXT_PUBLIC_APK_URL;
+  const url = publicEnv.APK_URL;
 
   if (!url) {
     return NextResponse.json(
       {
         error: "APK_URL_NOT_CONFIGURED",
-        message:
-          "Set NEXT_PUBLIC_APK_URL in your environment to enable APK downloads.",
+        message: "Set APK_URL in your environment to enable APK downloads.",
       },
-      { status: 503 }
+      { status: 503 },
     );
   }
 

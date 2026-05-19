@@ -55,12 +55,33 @@ Ver `docs/specs/2026-05-18-goalspay-landing-design.md` para el spec completo.
 - `design-system/MASTER.md` — design tokens y reglas
 - `.agents/product-marketing.md` — contexto de marketing reutilizable
 
+## Publicar una nueva versión del APK
+
+El APK se distribuye vía **GitHub Releases** del propio repo de la landing (no se commitea al árbol git).
+
+```powershell
+# 1. Descargar el build de EAS al disco
+eas build:list --platform android --status finished --limit 1 --json
+# (copia buildUrl, descárgalo manualmente o con curl)
+
+# 2. Crear release y subir el APK con nombre limpio
+gh release create v1.1.0 ./goalspay-v1.1.0.apk `
+  --repo jeffersontgc/GoalsPayLandingWeb `
+  --title "GoalsPay v1.1.0" `
+  --notes "Changelog aquí"
+
+# 3. Actualizar .env.local (y la env var en Vercel)
+# NEXT_PUBLIC_APK_URL=https://github.com/jeffersontgc/GoalsPayLandingWeb/releases/download/v1.1.0/goalspay-v1.1.0.apk
+```
+
+URL actual (v1.0.0):
+`https://github.com/jeffersontgc/GoalsPayLandingWeb/releases/download/v1.0.0/goalspay-v1.0.0.apk`
+
 ## Próximos pasos
 
-1. Reemplazar mockups en `Hero`, `ModesShowcase` y `ScreensCarousel` con capturas reales (WebP) cuando estén disponibles.
-2. Setear `NEXT_PUBLIC_APK_URL` apuntando al build EAS o GitHub Release.
-3. Conectar dominio `goalspay.app` en Vercel.
-4. Publicar en Play Store / App Store y descomentar los badges.
+1. Reemplazar mockups en `Hero` y `ModesShowcase` con capturas reales (WebP) cuando estén disponibles.
+2. Conectar dominio `goalspay.app` en Vercel y setear `NEXT_PUBLIC_APK_URL` allí.
+3. Publicar en Play Store / App Store y descomentar los badges.
 
 ## Licencia
 
