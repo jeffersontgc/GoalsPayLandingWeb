@@ -3,34 +3,33 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-200 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 select-none",
+/**
+ * Botones de MASTER.md §4.1: 52 px (24 de padding) o 44 px (20) en la navegación, radio 14,
+ * DM Sans 700. El primario (--gp-primary) con texto blanco da 6.1:1 y va una vez por vista; el
+ * secundario es marino en claro y claro en oscuro; "ghost" es texto en azul.
+ */
+export const buttonVariants = cva(
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-control font-sans font-bold whitespace-nowrap transition-[background-color,border-color,color,transform] duration-200 select-none active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default:
-          "text-white bg-[linear-gradient(135deg,#6366f1_0%,#22d3a6_100%)] shadow-[0_0_40px_rgba(99,102,241,0.45)] hover:brightness-110 hover:shadow-[0_0_60px_rgba(99,102,241,0.6)] active:scale-[0.98]",
-        secondary:
-          "bg-white/[0.04] border border-white/10 text-[color:var(--color-text-primary)] backdrop-blur-md hover:bg-white/[0.08] hover:border-white/20",
-        outline:
-          "border border-white/15 text-[color:var(--color-text-primary)] hover:bg-white/[0.04]",
-        ghost:
-          "text-[color:var(--color-text-secondary)] hover:text-[color:var(--color-text-primary)] hover:bg-white/[0.04]",
-        link: "text-[color:var(--color-brand-300)] underline-offset-4 hover:underline",
+        primary: "bg-primary text-on-primary hover:bg-primary-hover",
+        secondary: "bg-secondary text-on-secondary hover:bg-secondary-hover",
+        outline: "border-[1.5px] border-line text-ink hover:border-ink",
+        ghost: "text-link underline-offset-4 hover:underline",
+        icon: "text-ink-2 hover:bg-surface-muted hover:text-ink",
       },
       size: {
-        sm: "h-9 px-4 text-sm",
-        md: "h-11 px-5 text-sm",
-        lg: "h-13 px-7 text-base",
-        xl: "h-15 px-9 text-lg",
+        md: "h-[52px] px-6 text-base",
+        sm: "h-11 px-5 text-[0.9375rem]",
         icon: "size-11",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "md",
     },
-  }
+  },
 );
 
 export interface ButtonProps
@@ -39,18 +38,12 @@ export interface ButtonProps
   asChild?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+    const Component = asChild ? Slot : "button";
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <Component ref={ref} className={cn(buttonVariants({ variant, size, className }))} {...props} />
     );
-  }
+  },
 );
 Button.displayName = "Button";
-
-export { Button, buttonVariants };

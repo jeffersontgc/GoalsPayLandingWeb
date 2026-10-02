@@ -1,197 +1,347 @@
 {
   "meta": {
-    "title": "GoalsPay — Alcanza tus metas 3x más rápido",
-    "description": "App de ahorro con metas visuales, rachas y logros. 100% privada: tus datos viven solo en tu teléfono. 14 monedas LATAM. Gratis, sin anuncios.",
-    "ogTitle": "GoalsPay · Ahorra. Progresa. Logra.",
-    "ogDescription": "La app de metas que convierte tu ahorro en progreso visible."
+    "title": "GoalsPay: ahorra para tus metas con tu balance real",
+    "description": "App gratis de metas de ahorro y finanzas personales. Marca lo que cobraste y lo que pagaste, y abona a tus metas solo el dinero que de verdad tienes. Sin conectar tu banco.",
+    "ogTitle": "GoalsPay: metas de ahorro con tu balance real",
+    "ogDescription": "Tus cuentas del mes y tus metas comparten un solo balance. Solo abonas lo que de verdad tienes.",
+    "ogImageTitle": "Sabes cuánto tienes. Sabes cuánto te falta.",
+    "ogImageSubtitle": "Metas de ahorro y finanzas del mes, con un solo balance.",
+    "ogImageAlt": "GoalsPay: sabes cuánto tienes, sabes cuánto te falta",
+    "jsonLdDescription": "App de metas de ahorro y finanzas personales. Calcula tu balance disponible con lo que cobraste y lo que pagaste, y solo deja abonar a las metas el dinero que tienes."
+  },
+  "common": {
+    "skipToContent": "Saltar al contenido",
+    "homeLabel": "GoalsPay, inicio"
   },
   "nav": {
-    "features": "Características",
+    "label": "Principal",
+    "balance": "Cómo funciona",
     "modes": "Modos",
-    "privacy": "Privacidad",
-    "faq": "FAQ",
-    "download": "Descargar",
+    "features": "Funciones",
+    "trust": "Confianza",
+    "faq": "Preguntas",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
-    "toggleTheme": "Cambiar tema",
-    "toggleLang": "Cambiar idioma"
+    "menuTitle": "Menú",
+    "toggleTheme": "Cambiar entre tema claro y oscuro",
+    "language": "Idioma"
+  },
+  "download": {
+    "apk": "Descargar APK",
+    "headerCta": "Descargar",
+    "hint": "Gratis · APK para Android",
+    "storesLabel": "Tiendas de aplicaciones",
+    "playStore": "Google Play",
+    "appStore": "App Store",
+    "comingSoon": "Próximamente"
   },
   "hero": {
-    "kicker": "Metas + Finanzas en una sola app",
-    "title": "Ahorra. Progresa. Logra.",
-    "subtitle": "La app de metas que convierte cada abono en progreso visible.",
-    "ctaPrimary": "Descargar APK",
-    "ctaPrimaryHint": "Versión 1.0 · Android 8+",
-    "ctaPlayStore": "Próximamente en Play Store",
-    "ctaAppStore": "Próximamente en App Store",
-    "screenAlt": "Pantalla principal de GoalsPay mostrando metas y progreso"
+    "eyebrow": "Metas de ahorro y finanzas del mes",
+    "title": "Sabes cuánto tienes. Sabes cuánto te falta.",
+    "subtitle": "GoalsPay junta tus cuentas del mes y tus metas en un solo balance. Solo abonas el dinero que de verdad tienes.",
+    "secondaryCta": "Ver cómo funciona"
   },
-  "trust": {
-    "private": "100% privado",
-    "free": "Gratis sin anuncios",
-    "noLogin": "Sin registro",
-    "currencies": "14 monedas LATAM",
-    "backup": "Backup a Google Drive"
+  "problem": {
+    "eyebrow": "01 · El problema",
+    "title": "Ahorrar sin saber cuánto te sobra es adivinar.",
+    "lead": "La libreta, el Excel y la app del banco te muestran pedazos sueltos. Nadie los suma por ti antes de que apartes dinero.",
+    "quotesLabel": "Lo que pasa cuando nada está conectado",
+    "quotes": {
+      "enough": "¿Me alcanza para abonar este mes?",
+      "rent": "Pagué el alquiler… ¿o no?",
+      "monthEnd": "Abono, y al final del mes no cuadra."
+    }
+  },
+  "balance": {
+    "eyebrow": "02 · El balance",
+    "title": "Un balance real, conectado a tus metas.",
+    "lead": "Marcas tu salario como recibido y el balance sube. Pagas el alquiler y baja. Lo que abonas a una meta sale de ahí, sin contar nada dos veces.",
+    "flow": {
+      "label": "Diagrama: recibes {received}, pagas {paid} y te quedan {beforeGoals}. Abonas {deposit} a una meta y quedan {available} disponibles. Si intentas abonar {blocked}, la app no te deja.",
+      "example": "Un mes de ejemplo",
+      "received": "Recibido",
+      "receivedNote": "Salario de septiembre",
+      "paid": "Pagado",
+      "paidNote": "Alquiler, súper e internet",
+      "available": "Disponible",
+      "deposit": "Abono a una meta",
+      "depositNote": "Laptop para la U",
+      "after": "Te queda disponible",
+      "blockedTitle": "Y si te pasas",
+      "blockedAttempt": "Intentas abonar {amount}",
+      "blockedMessage": "Supera tu balance: puedes abonar hasta {amount}."
+    },
+    "rules": {
+      "noDouble": "Un abono no crea un gasto falso ni duplica un ingreso. El balance se calcula con lo que registraste.",
+      "priorSavings": "Lo que ya tenías guardado para una meta entra como ahorro previo, sin restar del balance."
+    },
+    "ctaTitle": "Pruébalo con tus números"
+  },
+  "modes": {
+    "eyebrow": "03 · Dos modos",
+    "title": "Finanzas para tu mes. Metas para lo que viene.",
+    "lead": "Cambias de modo desde el menú. Los dos leen el mismo balance.",
+    "finance": {
+      "name": "Finanzas",
+      "body": "Registras tus ingresos y gastos fijos una vez. Cada mes los marcas como recibidos, pagados u omitidos.",
+      "bullets": {
+        "oneOff": "Ingresos y gastos extra, con su fecha",
+        "opening": "Saldo inicial para empezar con lo que tienes hoy",
+        "analytics": "Analíticas por mes e historial de cambios"
+      }
+    },
+    "goals": {
+      "name": "Metas",
+      "body": "Cada meta tiene monto, fecha y categoría. Ves cuánto llevas, cuánto te falta y cuánto te toca por semana.",
+      "bullets": {
+        "movements": "Abonos y retiros, con una nota si quieres",
+        "priorSavings": "Ahorro previo para lo que ya tenías apartado",
+        "streak": "Una racha que cuenta los días seguidos con abono"
+      }
+    }
   },
   "features": {
-    "eyebrow": "Características",
-    "title": "Diseñado para que ahorrar deje de ser aburrido",
-    "subtitle": "Cada función está pensada para mantener viva tu motivación, no para vigilar tu cuenta.",
-    "items": {
-      "photoGoals": {
-        "title": "Metas con foto",
-        "desc": "Pon la foto del producto, viaje o sueño que estás ahorrando. Tu cerebro celebra lo que ve."
+    "eyebrow": "04 · Todo lo demás",
+    "title": "Hecho para el día a día.",
+    "lead": "Todo esto viene en la versión que puedes descargar hoy.",
+    "tiles": {
+      "balance": {
+        "title": "Un balance que no se duplica",
+        "body": "Entradas, salidas y lo que tienes en metas, en un solo número que puedes desglosar."
       },
       "streaks": {
-        "title": "Rachas diarias",
-        "desc": "Cada abono cuenta. Construye una racha imparable y no la sueltes."
+        "title": "Rachas y {count} logros",
+        "body": "La racha cuenta los días seguidos en que abonas. Los logros se desbloquean solos."
       },
-      "achievements": {
-        "title": "12 logros desbloqueables",
-        "desc": "De Primer paso a Imparable. La gamificación que sí funciona."
-      },
-      "projection": {
-        "title": "Proyección inteligente",
-        "desc": "Te decimos cuánto necesitas por semana o por día para llegar a tu fecha objetivo."
+      "oneOff": {
+        "title": "Movimientos extra",
+        "body": "El ingreso extra o el gasto que no se repite, con su fecha."
       },
       "widget": {
         "title": "Widget para Android",
-        "desc": "Mira tu progreso desde la pantalla de inicio. Sin abrir la app."
+        "body": "Tu ahorro total en la pantalla de inicio."
       },
-      "privacy": {
-        "title": "Datos en tu teléfono",
-        "desc": "No hay servidor. No hay cuenta. Backup opcional a tu propio Google Drive."
+      "opening": {
+        "title": "Saldo inicial y ahorro previo",
+        "body": "Empiezas con el dinero libre que tienes hoy. Lo que ya habías apartado para una meta entra directo a ella."
       },
       "currencies": {
-        "title": "14 monedas LATAM",
-        "desc": "USD, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG, CLP y EUR."
+        "title": "14 monedas",
+        "body": "Eliges la tuya al crear la cuenta: del córdoba y el quetzal al dólar y el euro."
+      },
+      "analytics": {
+        "title": "Analíticas e historial",
+        "body": "Cuánto entró y cuánto salió cada mes, y un registro de lo que cambiaste."
+      },
+      "reminders": {
+        "title": "Recordatorios y bloqueo",
+        "body": "Un aviso para no cortar tu racha, otro cuando vence un gasto. La app se abre con tu huella, tu rostro o el PIN."
       }
-    }
-  },
-  "modes": {
-    "eyebrow": "Dos apps en una",
-    "title": "Cambia entre Metas y Finanzas con un solo toque",
-    "subtitle": "Dos vistas dedicadas para dos formas distintas de pensar tu dinero.",
-    "goals": {
-      "tab": "Modo Metas",
-      "title": "Ahorra para lo que importa",
-      "desc": "Crea metas con monto, fecha y foto. Abona cuando puedas y mira la barra subir.",
-      "bullets": [
-        "Categoría, fecha objetivo y foto del producto",
-        "Historial de abonos con notas y fotos",
-        "Proyección semanal y diaria automática"
-      ]
     },
-    "finance": {
-      "tab": "Modo Finanzas",
-      "title": "Controla ingresos y gastos fijos",
-      "desc": "Registra tus ingresos recurrentes y gastos del mes. Mira cuánto te queda libre.",
-      "bullets": [
-        "Ingresos fijos por categoría",
-        "Gastos del mes con recordatorios",
-        "Sugerencia automática de cuánto puedes abonar a tus metas"
-      ]
-    }
+    "achievementSamples": "Primer paso, Semana perfecta, Meta cumplida…",
+    "also": "También: tema claro u oscuro, color de acento, español e inglés, soporte para lector de pantalla y acceso con Google, Apple (en iPhone), Microsoft o Facebook."
   },
-  "achievements": {
-    "eyebrow": "Motivación que sí funciona",
-    "title": "Cada abono te acerca a un logro",
-    "subtitle": "12 logros desbloqueables y rachas de hasta 30 días. El cerebro celebra lo que se ve.",
-    "streakLabel": "Racha actual",
-    "streakDays": "{count, plural, one {# día} other {# días}}",
-    "list": {
-      "first_goal": "Primer paso",
-      "first_deposit": "Empezar a ahorrar",
-      "five_deposits": "En racha",
-      "twenty_deposits": "Constancia",
-      "fifty_deposits": "Veterano",
-      "streak_3": "Tres días",
-      "streak_7": "Semana perfecta",
-      "streak_30": "Imparable",
-      "first_completion": "Meta cumplida",
-      "five_completions": "Coleccionista",
-      "multi_goals": "Diversificado",
-      "saver_1000": "Ahorrador"
-    }
-  },
-  "privacy": {
-    "eyebrow": "Privacidad real",
-    "title": "Tus datos no salen de tu teléfono. Punto.",
-    "subtitle": "GoalsPay no necesita tu banco, ni un correo, ni una contraseña. Funciona sin conexión.",
-    "bullets": [
-      "Sin login, sin servidor, sin tracking",
-      "Backup opcional a TU propio Google Drive",
-      "Bloqueo con huella o Face ID"
-    ],
-    "cta": "Leer política de privacidad"
+  "trust": {
+    "eyebrow": "05 · Confianza",
+    "title": "Tus datos, con reglas claras.",
+    "lead": "Es lo que dice la Política de Privacidad, en corto.",
+    "items": {
+      "account": {
+        "title": "Viven en tu cuenta",
+        "body": "Se guardan en nuestros servidores. Por eso la app necesita internet, y por eso cambias de teléfono sin perder nada."
+      },
+      "noBank": {
+        "title": "Sin conexión al banco",
+        "body": "No te pedimos números de cuenta ni tarjetas, y la app no mueve dinero."
+      },
+      "noSelling": {
+        "title": "No vendemos tus datos",
+        "body": "Tampoco los usamos para publicidad ni armamos perfiles con ellos."
+      },
+      "encryption": {
+        "title": "Viajan cifrados",
+        "body": "La app habla con el servidor por HTTPS y las contraseñas se guardan como hash."
+      },
+      "lock": {
+        "title": "Tu huella no sale del teléfono",
+        "body": "El desbloqueo con huella o rostro lo hace tu teléfono. Nosotros nunca recibimos esos datos."
+      },
+      "deletion": {
+        "title": "Borras tu cuenta desde la app",
+        "body": "Se elimina de inmediato. Las copias de seguridad técnicas se sobrescriben en un máximo de 30 días."
+      }
+    },
+    "policyLink": "Leer la Política de Privacidad",
+    "deleteLink": "Cómo eliminar tu cuenta"
   },
   "faq": {
     "eyebrow": "Preguntas frecuentes",
-    "title": "Lo que la gente nos pregunta",
-    "items": [
-      {
-        "q": "¿Es realmente gratis?",
-        "a": "Sí. La versión actual es gratis y sin anuncios. Si en el futuro lanzamos un plan premium, las funciones que tienes hoy seguirán siendo gratis."
+    "title": "Lo que suelen preguntarnos",
+    "items": {
+      "cost": {
+        "question": "¿Cuánto cuesta?",
+        "answer": "Hoy es gratis. Más adelante podría haber funciones premium de pago. Si llegan, te diremos antes el precio y qué incluyen, se pagarían por App Store o Google Play y nunca te cobraremos sin que lo aceptes."
       },
-      {
-        "q": "¿Necesito conectar mi banco?",
-        "a": "No. GoalsPay no se conecta a ningún banco. Tú decides cuánto abonas y la app lleva el seguimiento."
+      "bank": {
+        "question": "¿Tengo que conectar mi banco?",
+        "answer": "No. GoalsPay no se conecta a bancos, tarjetas ni medios de pago, y no mueve dinero. Los ingresos, gastos y abonos son registros que escribes tú."
       },
-      {
-        "q": "¿Está disponible en mi moneda?",
-        "a": "Soportamos 14 monedas: USD, EUR, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG y CLP."
+      "currencies": {
+        "question": "¿Qué monedas puedo usar?",
+        "answer": "Catorce: dólar estadounidense (USD), euro (EUR), quetzal (GTQ), peso mexicano (MXN), córdoba (NIO), colón costarricense (CRC), balboa (PAB), lempira (HNL), real brasileño (BRL), bolívar (VEF), peso dominicano (DOP), peso argentino (ARS), guaraní (PYG) y peso chileno (CLP)."
       },
-      {
-        "q": "¿Qué pasa si cambio de teléfono?",
-        "a": "Puedes activar el backup a tu propio Google Drive y restaurar tus datos en el nuevo dispositivo."
+      "newPhone": {
+        "question": "¿Qué pasa si cambio de teléfono?",
+        "answer": "Instalas la app en el nuevo e inicias sesión con tu cuenta. Tus metas y movimientos están en la cuenta, así que aparecen como los dejaste."
       },
-      {
-        "q": "¿Funciona sin internet?",
-        "a": "Sí. Toda la información vive en tu teléfono. Solo necesitas internet si activas el backup."
+      "internet": {
+        "question": "¿Funciona sin internet?",
+        "answer": "No. La app necesita conexión para leer y guardar tus datos, porque viven en tu cuenta y no en el teléfono."
       },
-      {
-        "q": "¿Cuándo estará en Play Store y App Store?",
-        "a": "Estamos en proceso de publicación. Mientras tanto puedes descargar el APK directo desde aquí."
+      "deleteAccount": {
+        "question": "¿Cómo elimino mi cuenta?",
+        "answer": "Desde la app, en Configuración → Eliminar cuenta. Tus datos se borran de inmediato y las copias de seguridad se sobrescriben en un máximo de 30 días. Si no puedes entrar, escribe a <mail>{email}</mail> desde el correo de tu cuenta. <link>Ver todos los detalles</link>."
+      },
+      "availability": {
+        "question": "¿Dónde la descargo?",
+        "answer": "Por ahora, como APK para Android desde esta página. Estamos preparando la publicación en Google Play y en App Store. La versión para iPhone llegará con la App Store."
+      },
+      "whoCanUse": {
+        "question": "¿Quién puede usarla?",
+        "answer": "Personas mayores de 18 años. Es una herramienta para organizar tu dinero: no es un banco y no da asesoría financiera."
       }
-    ]
-  },
-  "finalCta": {
-    "title": "Empieza a ahorrar hoy en menos de 30 segundos.",
-    "subtitle": "Descarga el APK, abre la app, crea tu primera meta. Así de simple.",
-    "cta": "Descargar APK",
-    "hint": "Sin registro · Sin conexión bancaria · Sin anuncios"
-  },
-  "footer": {
-    "tagline": "Ahorra. Progresa. Logra.",
-    "madeIn": "© {year} GoalsPay. Hecho con amor en LATAM.",
-    "groups": {
-      "product": "Producto",
-      "legal": "Legal",
-      "follow": "Seguir"
-    },
-    "links": {
-      "features": "Características",
-      "modes": "Modos",
-      "faq": "FAQ",
-      "download": "Descargar",
-      "privacy": "Privacidad",
-      "terms": "Términos"
     }
   },
-  "downloadToast": {
-    "missingTitle": "Descarga no disponible aún",
-    "missingBody": "El APK estará disponible muy pronto. Vuelve en unos días."
+  "finalCta": {
+    "title": "Empieza con tu primera meta.",
+    "subtitle": "Descarga la app, crea tu cuenta y marca tu primer ingreso. Desde ahí ya sabes cuánto puedes apartar."
+  },
+  "footer": {
+    "tagline": "Metas de ahorro y finanzas del mes, con un solo balance.",
+    "productGroup": "Producto",
+    "legalGroup": "Legal",
+    "controller": "Responsable",
+    "copyright": "© {year} GoalsPay"
   },
   "legal": {
-    "privacy": {
-      "title": "Política de Privacidad",
-      "updated": "Última actualización: 2026-05-18",
-      "body": "GoalsPay no recopila, almacena ni transmite tus datos financieros a ningún servidor. Toda la información que registres (metas, abonos, ingresos, gastos) vive exclusivamente en tu dispositivo. El único intercambio con servicios externos ocurre cuando tú activas el backup opcional a Google Drive — y va directo a TU cuenta, no a la nuestra. No usamos analíticas que te identifiquen, no integramos SDKs de publicidad, no compartimos datos con terceros. Si tienes dudas, escríbenos a contacto@goalspay.app."
+    "labels": {
+      "terms": "Términos y Condiciones",
+      "privacy": "Política de Privacidad",
+      "cookies": "Política de Cookies",
+      "deleteAccount": "Eliminar cuenta"
     },
-    "terms": {
-      "title": "Términos de Uso",
-      "updated": "Última actualización: 2026-05-18",
-      "body": "GoalsPay se ofrece tal cual, gratis y sin garantías. No reemplaza el consejo de un profesional financiero. Eres responsable de tus decisiones de ahorro. La app puede dejar de actualizarse en cualquier momento. Si tienes dudas, escríbenos a contacto@goalspay.app."
+    "eyebrow": "Documento legal",
+    "tocTitle": "En este documento",
+    "version": "Versión",
+    "updated": "Última actualización",
+    "tableRegion": "Tabla: {label}",
+    "otherDocuments": "Otros documentos",
+    "backToTop": "Volver arriba"
+  },
+  "mockups": {
+    "goalsHome": {
+      "label": "Ilustración: inicio de Metas con un ahorro total de {total} y dos metas.",
+      "greeting": "Hola, Ana",
+      "title": "Tus metas",
+      "streak": "{days} días",
+      "totalSaved": "Ahorro total",
+      "thisMonth": "{amount} este mes",
+      "newGoal": "Nueva meta",
+      "progress": "{current} de {target}",
+      "goals": {
+        "laptop": "Laptop para la U",
+        "emergency": "Fondo de emergencia",
+        "trip": "Viaje a Corn Island"
+      }
+    },
+    "goalDetail": {
+      "label": "Ilustración: la meta «Laptop para la U» al {percent} %, con sus últimos movimientos.",
+      "name": "Laptop para la U",
+      "category": "Estudios",
+      "pace": "Necesitas {perWeek}/semana · {perDay}/día por {days} días.",
+      "movementsTitle": "Movimientos",
+      "deposit": "Abono",
+      "priorSavings": "Ahorro previo",
+      "depositButton": "Abonar",
+      "movements": {
+        "fortnight": "Quincena",
+        "bonus": "Bono",
+        "extra": "Ahorro extra",
+        "prior": "Lo que ya tenía"
+      }
+    },
+    "finance": {
+      "label": "Ilustración: balance disponible de {available}, con el desglose de entradas, salidas y metas.",
+      "balance": "Balance disponible",
+      "moneyIn": "Entradas",
+      "moneyOut": "Salidas",
+      "inGoals": "En metas",
+      "opening": "Saldo inicial {amount}",
+      "recurring": "Recurrentes {amount}",
+      "oneOff": "Extra {amount}",
+      "deposited": "Abonado {amount}",
+      "withdrawn": "Retirado {amount}"
+    },
+    "monthPlan": {
+      "label": "Ilustración: plan de septiembre con el salario recibido, tres gastos pagados, uno pendiente y uno omitido.",
+      "title": "Tu mes, Ana",
+      "month": "Septiembre",
+      "incomes": "Ingresos",
+      "expenses": "Gastos",
+      "expensesSummary": "{paid} de {total} pagados · {skipped, plural, one {# omitido} other {# omitidos}}",
+      "day": "Día {day}",
+      "rows": {
+        "salary": "Salario",
+        "rent": "Alquiler",
+        "groceries": "Supermercado",
+        "internet": "Internet",
+        "power": "Luz",
+        "gym": "Gimnasio"
+      },
+      "status": {
+        "received": "Recibido",
+        "paid": "Pagado",
+        "pending": "Pendiente",
+        "skipped": "Omitido"
+      }
+    },
+    "streak": {
+      "title": "{days} días seguidos",
+      "caption": "Tu mejor racha hasta ahora."
+    },
+    "opening": {
+      "openingLabel": "Saldo inicial",
+      "openingNote": "Suma a tu balance",
+      "priorLabel": "Ahorro previo",
+      "priorNote": "Entra a la meta, no al balance"
+    },
+    "oneOff": {
+      "income": "Venta de una bici",
+      "expense": "Un regalo",
+      "incomeAmount": "+ {amount}",
+      "expenseAmount": "− {amount}"
+    },
+    "widget": {
+      "label": "Ilustración: widget de Android con un ahorro total de {total}.",
+      "total": "Ahorro total",
+      "goals": "{count, plural, one {# meta en progreso} other {# metas en progreso}}"
+    },
+    "analytics": {
+      "label": "Ilustración: barras de entradas y salidas de los últimos seis meses.",
+      "moneyIn": "Entradas",
+      "moneyOut": "Salidas"
+    },
+    "reminders": {
+      "label": "Ilustración: un recordatorio de racha y el bloqueo de la app activado.",
+      "reminderTitle": "Recordatorio · 8:00 p. m.",
+      "reminderBody": "Registra tus ahorros para mantener viva tu racha.",
+      "dueTitle": "Vence hoy: Luz",
+      "dueBody": "{amount}",
+      "lock": "Bloqueo de App"
+    },
+    "balanceRules": {
+      "noDouble": "Sin duplicados",
+      "blocked": "No abonas más de lo que tienes"
     }
   }
 }

@@ -1,19 +1,36 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
-import { publicEnv } from "@/lib/env";
+import { LEGAL_DOCUMENT_KEYS } from "@/lib/legal/documents";
+import type { LocaleAlternates } from "@/types/navigation";
+import {
+  getAbsoluteUrl,
+  getHomeAlternates,
+  getLanguageAlternates,
+  getLegalAlternates,
+} from "@/utils/seo";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = publicEnv.NEXT_PUBLIC_SITE_URL;
-  const now = new Date();
+const HOME_PRIORITY = 1;
+const LEGAL_PRIORITY = 0.4;
 
-  const paths = ["", "/privacy", "/terms"];
+const buildEntries = (
+  alternates: LocaleAlternates,
+  priority: number,
+  changeFrequency: "monthly" | "yearly",
+): MetadataRoute.Sitemap =>
+  locales.map((locale) => ({
+    url: getAbsoluteUrl(alternates[locale]),
+    lastModified: new Date(),
+    changeFrequency,
+    priority,
+    alternates: { languages: getLanguageAlternates(alternates) },
+  }));
 
-  return paths.flatMap((path) =>
-    locales.map((locale) => ({
-      url: `${base}/${locale}${path}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: path === "" ? 1 : 0.5,
-    }))
-  );
-}
+/** Inicio y los ocho documentos legales, cada uno con su hreflang. */
+const sitemap = (): MetadataRoute.Sitemap => [
+  ...buildEntries(getHomeAlternates(), HOME_PRIORITY, "monthly"),
+  ...LEGAL_DOCUMENT_KEYS.flatMap((documentKey) =>
+    buildEntries(getLegalAlternates(documentKey), LEGAL_PRIORITY, "yearly"),
+  ),
+];
+
+export default sitemap;

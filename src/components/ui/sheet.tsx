@@ -3,12 +3,13 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
+import { ICON_STROKE_WIDTH } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-const Sheet = DialogPrimitive.Root;
-const SheetTrigger = DialogPrimitive.Trigger;
-const SheetClose = DialogPrimitive.Close;
-const SheetPortal = DialogPrimitive.Portal;
+export const Sheet = DialogPrimitive.Root;
+export const SheetTrigger = DialogPrimitive.Trigger;
+export const SheetClose = DialogPrimitive.Close;
+export const SheetTitle = DialogPrimitive.Title;
 
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
@@ -17,38 +18,41 @@ const SheetOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-      className
+      "fixed inset-0 z-50 bg-overlay data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0",
+      className,
     )}
     {...props}
   />
 ));
 SheetOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-const SheetContent = React.forwardRef<
+interface SheetContentProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+  closeLabel: string;
+}
+
+/** Panel lateral (menú móvil). Radix atrapa el foco, cierra con Escape y lo devuelve al botón. */
+export const SheetContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
-    closeLabel?: string;
-  }
->(({ className, children, closeLabel = "Close", ...props }, ref) => (
-  <SheetPortal>
+  SheetContentProps
+>(({ className, children, closeLabel, ...props }, ref) => (
+  <DialogPrimitive.Portal>
     <SheetOverlay />
     <DialogPrimitive.Content
       ref={ref}
+      aria-describedby={undefined}
       className={cn(
-        "fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col gap-6 border-l border-[color:var(--color-border-soft)] bg-[color:var(--color-bg-surface)] p-6 shadow-2xl transition ease-out data-[state=closed]:duration-200 data-[state=open]:duration-300 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right",
-        className
+        "fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col gap-6 overflow-y-auto border-l border-line bg-surface p-6 shadow-[0_8px_40px_var(--gp-shadow-strong)] data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=closed]:duration-200 data-[state=open]:animate-in data-[state=open]:slide-in-from-right data-[state=open]:duration-300",
+        className,
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-5 top-5 rounded-full p-2 text-[color:var(--color-text-muted)] transition hover:bg-white/5 hover:text-[color:var(--color-text-primary)] focus-visible:outline-none">
-        <X className="size-5" />
+      <DialogPrimitive.Close className="absolute top-5 right-5 grid size-11 cursor-pointer place-items-center rounded-control text-ink-2 transition-colors hover:bg-surface-muted hover:text-ink">
+        <X className="size-5" strokeWidth={ICON_STROKE_WIDTH} aria-hidden="true" />
         <span className="sr-only">{closeLabel}</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
-  </SheetPortal>
+  </DialogPrimitive.Portal>
 ));
 SheetContent.displayName = "SheetContent";
-
-export { Sheet, SheetTrigger, SheetClose, SheetContent };

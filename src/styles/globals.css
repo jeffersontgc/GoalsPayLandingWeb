@@ -1,173 +1,528 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
-@custom-variant dark (&:is(.dark *));
+/* next-themes pone la clase .dark en <html>; el modo por defecto sigue al sistema. */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/*
+ * Tokens del sistema de diseño (GoalsPay Design System.dc.html), iguales a los de la App
+ * (app/src/utils/colors.ts). Los componentes solo usan estas variables: nunca un hex.
+ */
+:root {
+  color-scheme: light;
+
+  --gp-canvas: #f6f8fb;
+  --gp-surface: #ffffff;
+  --gp-elevated: #f6f8fb;
+  --gp-surface-muted: #eef1f6;
+  --gp-line: #e3e8ef;
+  --gp-line-strong: #c7cbd6;
+
+  --gp-ink: #111827;
+  --gp-ink-2: #55627a;
+  /* #667286 en vez de #8a96a8: pasa AA sobre blanco (4.87) y sobre el fondo (4.57). */
+  --gp-ink-3: #667286;
+  /* Solo placeholders y usos decorativos: 3.0:1 sobre blanco. */
+  --gp-ink-placeholder: #8a96a8;
+
+  --gp-pulse: #4c6fff;
+  --gp-link: #3452e0;
+  --gp-primary: #3452e0;
+  --gp-on-primary: #ffffff;
+  --gp-primary-hover: #2b45c4;
+  --gp-secondary: #111827;
+  --gp-on-secondary: #ffffff;
+  --gp-secondary-hover: #1f2937;
+  --gp-sun: #ffb547;
+  --gp-danger: #c4363b;
+
+  --gp-tag-blue: #eef1ff;
+  --gp-tag-blue-ink: #3452e0;
+  --gp-tag-sun: #fff3dc;
+  --gp-tag-sun-ink: #945b00;
+  --gp-tag-error: #fdecec;
+  --gp-tag-error-ink: #c4363b;
+  --gp-tag-muted: #eef1f6;
+  --gp-tag-muted-ink: #55627a;
+
+  /* Tarjeta oscura destacada ("Ahorro total", racha, CTA final). */
+  --gp-inverse: #111827;
+  --gp-on-inverse: #ffffff;
+  --gp-on-inverse-2: #c7cbd6;
+  /* #4c6fff no llega a AA como texto sobre el marino (4.24): el acento de texto es #7b93ff. */
+  --gp-on-inverse-accent: #7b93ff;
+
+  /*
+   * Banda "ink": marino fijo en los dos temas (hero, capítulo de confianza y CTA final).
+   * Sobre ella el acento de texto es #7b93ff: #4c6fff solo llega a 4.24:1.
+   */
+  --gp-band: #111827;
+  --gp-on-band: #ffffff;
+  --gp-on-band-2: #c7cbd6;
+  --gp-on-band-accent: #7b93ff;
+  --gp-band-line: #273142;
+  --gp-band-hover: #1f2937;
+
+  --gp-logo-wordmark: #111827;
+  --gp-logo-pulse: #3452e0;
+
+  /* Marco de los mockups de teléfono y su única sombra. */
+  --gp-device: #0b0f19;
+  --gp-mockup-shadow: 0 24px 64px -24px rgb(17 24 39 / 0.25);
+  --gp-overlay: rgb(17 24 39 / 0.6);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --gp-canvas: #0b0f19;
+  --gp-surface: #111827;
+  --gp-elevated: #1f2937;
+  --gp-surface-muted: #1a2231;
+  --gp-line: #273142;
+  --gp-line-strong: #3a4658;
+
+  --gp-ink: #f6f8fb;
+  --gp-ink-2: #c7cbd6;
+  --gp-ink-3: #8a96a8;
+  --gp-ink-placeholder: #8a96a8;
+
+  --gp-link: #7b93ff;
+  --gp-primary-hover: #4562ee;
+  --gp-secondary: #f6f8fb;
+  --gp-on-secondary: #111827;
+  --gp-secondary-hover: #e3e8ef;
+  --gp-danger: #ff6b6f;
+
+  --gp-tag-blue: #1e2a5a;
+  --gp-tag-blue-ink: #7b93ff;
+  --gp-tag-sun: #3a2c12;
+  --gp-tag-sun-ink: #ffb547;
+  --gp-tag-error: #3d1719;
+  --gp-tag-error-ink: #ff6b6f;
+  --gp-tag-muted: #273142;
+  --gp-tag-muted-ink: #c7cbd6;
+
+  --gp-inverse: #1f2937;
+
+  --gp-logo-wordmark: #ffffff;
+  --gp-logo-pulse: #4c6fff;
+
+  --gp-device: #000000;
+  --gp-mockup-shadow: 0 24px 64px -24px rgb(0 0 0 / 0.6);
+  --gp-overlay: rgb(0 0 0 / 0.7);
+}
+
+/* Se quita la paleta por defecto de Tailwind: solo existen los tokens de GoalsPay. */
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --color-*: initial;
+  --font-*: initial;
 
-  --color-bg-base: #07091a;
-  --color-bg-surface: #0b1120;
-  --color-bg-surface-alt: #111827;
-  --color-bg-surface-2: #1e293b;
-  --color-bg-elevated: rgba(255, 255, 255, 0.04);
-  --color-bg-elevated-2: rgba(255, 255, 255, 0.06);
+  --radius-chip: 8px;
+  --radius-icon: 12px;
+  --radius-control: 14px;
+  --radius-card: 20px;
+  --radius-chapter: 28px;
+  --radius-device: 44px;
+  --radius-pill: 999px;
 
-  --color-border-soft: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --ease-brand: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #94a3b8;
-  --color-text-inverse: #0f172a;
+@theme inline {
+  --color-canvas: var(--gp-canvas);
+  --color-surface: var(--gp-surface);
+  --color-elevated: var(--gp-elevated);
+  --color-surface-muted: var(--gp-surface-muted);
+  --color-line: var(--gp-line);
+  --color-line-strong: var(--gp-line-strong);
 
-  --color-brand-300: #a5b4fc;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
+  --color-ink: var(--gp-ink);
+  --color-ink-2: var(--gp-ink-2);
+  --color-ink-3: var(--gp-ink-3);
+  --color-ink-placeholder: var(--gp-ink-placeholder);
 
-  --color-accent-300: #86efac;
-  --color-accent-400: #4ade80;
-  --color-accent-500: #22d3a6;
-  --color-accent-600: #15a87f;
+  --color-pulse: var(--gp-pulse);
+  --color-link: var(--gp-link);
+  --color-primary: var(--gp-primary);
+  --color-on-primary: var(--gp-on-primary);
+  --color-primary-hover: var(--gp-primary-hover);
+  --color-secondary: var(--gp-secondary);
+  --color-on-secondary: var(--gp-on-secondary);
+  --color-secondary-hover: var(--gp-secondary-hover);
+  --color-sun: var(--gp-sun);
+  --color-danger: var(--gp-danger);
 
-  --color-success: #4ade80;
-  --color-warning: #fbbf24;
-  --color-danger: #f87171;
-  --color-info: #60a5fa;
+  --color-tag-blue: var(--gp-tag-blue);
+  --color-tag-blue-ink: var(--gp-tag-blue-ink);
+  --color-tag-sun: var(--gp-tag-sun);
+  --color-tag-sun-ink: var(--gp-tag-sun-ink);
+  --color-tag-error: var(--gp-tag-error);
+  --color-tag-error-ink: var(--gp-tag-error-ink);
+  --color-tag-muted: var(--gp-tag-muted);
+  --color-tag-muted-ink: var(--gp-tag-muted-ink);
 
-  --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-xl: 22px;
-  --radius-2xl: 28px;
+  --color-inverse: var(--gp-inverse);
+  --color-on-inverse: var(--gp-on-inverse);
+  --color-on-inverse-2: var(--gp-on-inverse-2);
+  --color-on-inverse-accent: var(--gp-on-inverse-accent);
 
-  --shadow-glow-brand: 0 0 40px rgba(99, 102, 241, 0.45);
-  --shadow-glow-accent: 0 0 40px rgba(34, 211, 166, 0.45);
-  --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+  --color-band: var(--gp-band);
+  --color-on-band: var(--gp-on-band);
+  --color-on-band-2: var(--gp-on-band-2);
+  --color-on-band-accent: var(--gp-on-band-accent);
+  --color-band-line: var(--gp-band-line);
+  --color-band-hover: var(--gp-band-hover);
 
-  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --color-logo-wordmark: var(--gp-logo-wordmark);
+  --color-logo-pulse: var(--gp-logo-pulse);
+
+  --color-device: var(--gp-device);
+  --color-overlay: var(--gp-overlay);
+
+  --shadow-mockup: var(--gp-mockup-shadow);
+
+  /* Variables que inyecta next/font en <html>. */
+  --font-wordmark: var(--font-syncopate), "Arial Black", ui-sans-serif, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
-  :root {
-    color-scheme: dark;
+  html {
+    scroll-behavior: smooth;
   }
 
-  html,
   body {
-    background-color: var(--color-bg-base);
-    color: var(--color-text-primary);
-    font-feature-settings: "cv11", "ss01", "ss03";
+    background-color: var(--gp-canvas);
+    color: var(--gp-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body {
-    background-image:
-      radial-gradient(1200px 600px at 20% 0%, rgba(99, 102, 241, 0.18), transparent 60%),
-      radial-gradient(900px 500px at 80% 10%, rgba(34, 211, 166, 0.12), transparent 60%);
-    background-attachment: fixed;
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-underline-offset: 3px;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent-400);
+    outline: 2px solid var(--gp-link);
     outline-offset: 2px;
-    border-radius: 6px;
+  }
+
+  /* Sobre la banda marino el anillo usa el acento claro para seguir pasando 3:1. */
+  [data-band] :focus-visible {
+    outline-color: var(--gp-on-band-accent);
+  }
+
+  /* Las anclas no quedan tapadas por la cabecera fija. */
+  [id] {
+    scroll-margin-top: 5rem;
   }
 
   ::selection {
-    background-color: rgba(99, 102, 241, 0.45);
-    color: var(--color-text-primary);
+    background-color: var(--gp-tag-blue);
+    color: var(--gp-ink);
   }
 
-  .light {
-    color-scheme: light;
-    --color-bg-base: #f8fafc;
-    --color-bg-surface: #ffffff;
-    --color-bg-surface-alt: #f1f5f9;
-    --color-bg-surface-2: #e2e8f0;
-    --color-bg-elevated: #ffffff;
-    --color-bg-elevated-2: #ffffff;
-    --color-border-soft: #e2e8f0;
-    --color-border-strong: #cbd5e1;
-    --color-text-primary: #0f172a;
-    --color-text-secondary: #475569;
-    --color-text-muted: #64748b;
-    --color-text-inverse: #ffffff;
-  }
-
-  .light body {
-    background-image:
-      radial-gradient(1000px 500px at 20% 0%, rgba(99, 102, 241, 0.12), transparent 60%),
-      radial-gradient(800px 400px at 80% 10%, rgba(34, 211, 166, 0.08), transparent 60%);
-  }
 }
 
-@layer components {
-  .glass {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-    border: 1px solid var(--color-border-soft);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .light .glass {
-    background: linear-gradient(180deg, #ffffff, #ffffffcc);
-    border: 1px solid var(--color-border-soft);
-    backdrop-filter: blur(16px);
-  }
-
-  .grid-bg {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse at top, black 0%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse at top, black 0%, transparent 70%);
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #a5b4fc 0%, #22d3a6 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-@layer utilities {
-  .container-page {
-    max-width: 72rem;
-    margin-inline: auto;
-    padding-inline: 1.25rem;
-  }
+/* Contenedor: 1200 de ancho, 16 de margen en móvil y 24 en escritorio. */
+@utility container-page {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
 
   @media (min-width: 768px) {
-    .container-page {
-      padding-inline: 2rem;
-    }
-  }
-
-  .section {
-    padding-block: 6rem;
-  }
-
-  @media (min-width: 768px) {
-    .section {
-      padding-block: 8rem;
-    }
+    padding-inline: 1.5rem;
   }
 }
 
+/* Separación entre capítulos: 96 en móvil, 128 en escritorio. */
+@utility chapter-y {
+  padding-block: 6rem;
+
+  @media (min-width: 768px) {
+    padding-block: 8rem;
+  }
+}
+
+/*
+ * Roles tipográficos de MASTER.md §2.2. Cada vista usa como mucho tres: título, texto y
+ * etiqueta.
+ */
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
+}
+
+@utility type-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+@utility type-h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+@utility type-tile {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+@utility type-figure {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+/* Cifras dentro de un diagrama o una tarjeta: el escalón de 32 de "Figures 48–32". */
+@utility type-figure-compact {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility type-body {
+  font-size: 1rem;
+  line-height: 1.6;
+
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+@utility type-small {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@utility type-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/*
+ * Escala de la App (app/src/utils/typography.ts) para los mockups: así la pantalla de la
+ * landing mide lo mismo que la real.
+ */
+@utility mock-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+@utility mock-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+}
+
+@utility mock-row-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+}
+
+@utility mock-amount-summary {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility mock-amount-card {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility mock-amount-row {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility mock-meta {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+@utility mock-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@utility mock-button {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* El pulso del hero se dibuja solo con CSS: sin JS y sin esperar a hidratar. */
+@keyframes pulse-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pulse-draw-path {
+  stroke-dasharray: 1;
+  animation: pulse-draw 900ms var(--ease-brand) 150ms both;
+}
+
+.pulse-draw-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-dot 300ms var(--ease-brand) 1000ms both;
+}
+
+/* Acordeón del FAQ (Radix expone la altura del contenido en una variable). */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+.accordion-content {
+  overflow: hidden;
+}
+
+.accordion-content[data-state="open"] {
+  animation: accordion-down 250ms var(--ease-brand);
+}
+
+.accordion-content[data-state="closed"] {
+  animation: accordion-up 200ms var(--ease-brand);
+}
+
+/*
+ * Movimiento reducido: todo lo que anima Framer Motion lleva data-motion. Con esta regla el
+ * contenido se ve en su estado final aunque el JS todavía no haya hidratado.
+ */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-motion] path,
+  .pulse-draw-path {
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+
+  .pulse-draw-dot {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

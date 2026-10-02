@@ -1,6 +1,13 @@
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+/** Radios propios del sistema (rounded-chip, rounded-control…), para que se fusionen bien. */
+const mergeClasses = extendTailwindMerge({
+  extend: {
+    theme: {
+      borderRadius: ["chip", "control", "card", "device", "pill"],
+    },
+  },
+});
+
+export const cn = (...inputs: ClassValue[]): string => mergeClasses(clsx(inputs));

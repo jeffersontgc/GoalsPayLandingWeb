@@ -1,197 +1,347 @@
 {
   "meta": {
-    "title": "GoalsPay — Reach your goals 3x faster",
-    "description": "Savings app with visual goals, streaks and achievements. 100% private: your data stays on your phone. 14 LATAM currencies. Free, no ads.",
-    "ogTitle": "GoalsPay · Save. Progress. Achieve.",
-    "ogDescription": "The goals app that turns your savings into visible progress."
+    "title": "GoalsPay: save for your goals with your real balance",
+    "description": "A free app for savings goals and personal finance. Mark what you got paid and what you paid, and put into your goals only money you actually have. No bank connection.",
+    "ogTitle": "GoalsPay: savings goals with your real balance",
+    "ogDescription": "Your monthly bills and your goals share one balance. You only save money you actually have.",
+    "ogImageTitle": "Know what you have. Know what you still need.",
+    "ogImageSubtitle": "Savings goals and monthly finances, with one balance.",
+    "ogImageAlt": "GoalsPay: know what you have, know what you still need",
+    "jsonLdDescription": "Savings goals and personal finance app. It works out your available balance from what you got paid and what you paid, and only lets you put money you have into your goals."
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "homeLabel": "GoalsPay, home"
   },
   "nav": {
-    "features": "Features",
+    "label": "Main",
+    "balance": "How it works",
     "modes": "Modes",
-    "privacy": "Privacy",
+    "features": "Features",
+    "trust": "Trust",
     "faq": "FAQ",
-    "download": "Download",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "toggleTheme": "Toggle theme",
-    "toggleLang": "Change language"
+    "menuTitle": "Menu",
+    "toggleTheme": "Switch between light and dark theme",
+    "language": "Language"
+  },
+  "download": {
+    "apk": "Download APK",
+    "headerCta": "Download",
+    "hint": "Free · Android APK",
+    "storesLabel": "App stores",
+    "playStore": "Google Play",
+    "appStore": "App Store",
+    "comingSoon": "Coming soon"
   },
   "hero": {
-    "kicker": "Goals + Finance in one app",
-    "title": "Save. Progress. Achieve.",
-    "subtitle": "The goals app that turns every deposit into visible progress.",
-    "ctaPrimary": "Download APK",
-    "ctaPrimaryHint": "Version 1.0 · Android 8+",
-    "ctaPlayStore": "Coming soon on Play Store",
-    "ctaAppStore": "Coming soon on App Store",
-    "screenAlt": "GoalsPay main screen showing goals and progress"
+    "eyebrow": "Savings goals and monthly finances",
+    "title": "Know what you have. Know what you still need.",
+    "subtitle": "GoalsPay puts your monthly bills and your goals on one balance. You only save money you actually have.",
+    "secondaryCta": "See how it works"
   },
-  "trust": {
-    "private": "100% private",
-    "free": "Free, no ads",
-    "noLogin": "No signup",
-    "currencies": "14 LATAM currencies",
-    "backup": "Google Drive backup"
+  "problem": {
+    "eyebrow": "01 · The problem",
+    "title": "Saving without knowing what's left over is guesswork.",
+    "lead": "A notebook, a spreadsheet and your bank app each show you a piece. Nobody adds them up for you before you set money aside.",
+    "quotesLabel": "What happens when nothing is connected",
+    "quotes": {
+      "enough": "Can I afford to save this month?",
+      "rent": "Did I pay the rent… or not?",
+      "monthEnd": "I save, and at the end of the month it doesn't add up."
+    }
+  },
+  "balance": {
+    "eyebrow": "02 · The balance",
+    "title": "A real balance, connected to your goals.",
+    "lead": "Mark your salary as received and the balance goes up. Pay the rent and it goes down. What you put into a goal comes out of it, and nothing is counted twice.",
+    "flow": {
+      "label": "Diagram: you receive {received}, pay {paid} and have {beforeGoals} left. You put {deposit} into a goal and {available} stays available. If you try to save {blocked}, the app won't let you.",
+      "example": "A sample month",
+      "received": "Received",
+      "receivedNote": "September salary",
+      "paid": "Paid",
+      "paidNote": "Rent, groceries and internet",
+      "available": "Available",
+      "deposit": "Deposit to a goal",
+      "depositNote": "Laptop for college",
+      "after": "Still available",
+      "blockedTitle": "And if you go over",
+      "blockedAttempt": "You try to deposit {amount}",
+      "blockedMessage": "That's more than your balance: you can deposit up to {amount}."
+    },
+    "rules": {
+      "noDouble": "A deposit doesn't create a fake expense or duplicate an income. The balance is worked out from what you recorded.",
+      "priorSavings": "Money you'd already set aside for a goal goes in as prior savings, without touching the balance."
+    },
+    "ctaTitle": "Try it with your own numbers"
+  },
+  "modes": {
+    "eyebrow": "03 · Two modes",
+    "title": "Finance for your month. Goals for what's next.",
+    "lead": "You switch modes from the menu. Both read the same balance.",
+    "finance": {
+      "name": "Finance",
+      "body": "Add your regular income and bills once. Each month, mark them as received, paid or skipped.",
+      "bullets": {
+        "oneOff": "Extra income and expenses, with their date",
+        "opening": "An opening balance to start from what you have today",
+        "analytics": "Monthly analytics and a change history"
+      }
+    },
+    "goals": {
+      "name": "Goals",
+      "body": "Each goal has an amount, a date and a category. You see what you've saved, what's left and how much you need per week.",
+      "bullets": {
+        "movements": "Deposits and withdrawals, with a note if you want",
+        "priorSavings": "Prior savings for money you'd already set aside",
+        "streak": "A streak that counts the days in a row you save"
+      }
+    }
   },
   "features": {
-    "eyebrow": "Features",
-    "title": "Built so saving stops being boring",
-    "subtitle": "Every feature is designed to keep your motivation alive, not to surveil your account.",
-    "items": {
-      "photoGoals": {
-        "title": "Goals with a photo",
-        "desc": "Set the photo of the product, trip or dream you're saving for. Your brain cheers what it sees."
+    "eyebrow": "04 · Everything else",
+    "title": "Made for everyday use.",
+    "lead": "All of this is in the version you can download today.",
+    "tiles": {
+      "balance": {
+        "title": "A balance that never doubles up",
+        "body": "Money in, money out and what's in your goals, as one number you can break down."
       },
       "streaks": {
-        "title": "Daily streaks",
-        "desc": "Every deposit counts. Build an unstoppable streak and don't drop it."
+        "title": "Streaks and {count} achievements",
+        "body": "Your streak counts the days in a row you save. Achievements unlock on their own."
       },
-      "achievements": {
-        "title": "12 unlockable achievements",
-        "desc": "From First step to Unstoppable. Gamification that actually works."
-      },
-      "projection": {
-        "title": "Smart projection",
-        "desc": "We tell you how much you need per week or per day to hit your target date."
+      "oneOff": {
+        "title": "Extra transactions",
+        "body": "That extra income or one-time expense, with its date."
       },
       "widget": {
         "title": "Android widget",
-        "desc": "See your progress right from your home screen. No app to open."
+        "body": "Your total savings on your home screen."
       },
-      "privacy": {
-        "title": "Data on your phone",
-        "desc": "No server. No account. Optional backup to your own Google Drive."
+      "opening": {
+        "title": "Opening balance and prior savings",
+        "body": "Start with the free money you have today. What you'd already set aside for a goal goes straight into it."
       },
       "currencies": {
-        "title": "14 LATAM currencies",
-        "desc": "USD, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG, CLP and EUR."
+        "title": "14 currencies",
+        "body": "Pick yours when you sign up, from the córdoba and the quetzal to the dollar and the euro."
+      },
+      "analytics": {
+        "title": "Analytics and history",
+        "body": "How much came in and went out each month, plus a log of what you changed."
+      },
+      "reminders": {
+        "title": "Reminders and app lock",
+        "body": "A nudge so you don't break your streak, another when a bill is due. The app opens with your fingerprint, face or PIN."
       }
-    }
-  },
-  "modes": {
-    "eyebrow": "Two apps in one",
-    "title": "Switch between Goals and Finance with a single tap",
-    "subtitle": "Two dedicated views for two different ways to think about your money.",
-    "goals": {
-      "tab": "Goals mode",
-      "title": "Save for what matters",
-      "desc": "Create goals with amount, date and photo. Deposit whenever you can and watch the bar grow.",
-      "bullets": [
-        "Category, target date and product photo",
-        "Deposit history with notes and photos",
-        "Automatic weekly and daily projection"
-      ]
     },
-    "finance": {
-      "tab": "Finance mode",
-      "title": "Manage incomes and fixed expenses",
-      "desc": "Track your recurring incomes and monthly expenses. See how much you have left.",
-      "bullets": [
-        "Fixed incomes by category",
-        "Monthly expenses with reminders",
-        "Smart suggestion of how much you can deposit to your goals"
-      ]
-    }
+    "achievementSamples": "First Step, Perfect Week, Goal Completed…",
+    "also": "Also: light or dark theme, accent color, Spanish and English, screen reader support, and sign-in with Google, Apple (on iPhone), Microsoft or Facebook."
   },
-  "achievements": {
-    "eyebrow": "Motivation that works",
-    "title": "Every deposit unlocks something",
-    "subtitle": "12 unlockable achievements and streaks up to 30 days. The brain cheers what it sees.",
-    "streakLabel": "Current streak",
-    "streakDays": "{count, plural, one {# day} other {# days}}",
-    "list": {
-      "first_goal": "First step",
-      "first_deposit": "Start saving",
-      "five_deposits": "On a roll",
-      "twenty_deposits": "Consistency",
-      "fifty_deposits": "Veteran",
-      "streak_3": "Three days",
-      "streak_7": "Perfect week",
-      "streak_30": "Unstoppable",
-      "first_completion": "Goal achieved",
-      "five_completions": "Collector",
-      "multi_goals": "Diversified",
-      "saver_1000": "Saver"
-    }
-  },
-  "privacy": {
-    "eyebrow": "Real privacy",
-    "title": "Your data never leaves your phone. Period.",
-    "subtitle": "GoalsPay doesn't need your bank, your email, or your password. It works offline.",
-    "bullets": [
-      "No login, no server, no tracking",
-      "Optional backup to YOUR own Google Drive",
-      "Lock with fingerprint or Face ID"
-    ],
-    "cta": "Read privacy policy"
+  "trust": {
+    "eyebrow": "05 · Trust",
+    "title": "Your data, with clear rules.",
+    "lead": "It's what the Privacy Policy says, in short.",
+    "items": {
+      "account": {
+        "title": "It lives in your account",
+        "body": "It's stored on our servers. That's why the app needs internet, and why you can switch phones without losing anything."
+      },
+      "noBank": {
+        "title": "No bank connection",
+        "body": "We don't ask for account or card numbers, and the app doesn't move money."
+      },
+      "noSelling": {
+        "title": "We don't sell your data",
+        "body": "We don't use it for advertising or build profiles from it either."
+      },
+      "encryption": {
+        "title": "Encrypted in transit",
+        "body": "The app talks to the server over HTTPS, and passwords are stored as a hash."
+      },
+      "lock": {
+        "title": "Your fingerprint stays on your phone",
+        "body": "Fingerprint or face unlock is handled by your phone. We never receive that data."
+      },
+      "deletion": {
+        "title": "Delete your account from the app",
+        "body": "It's deleted right away. Technical backups are overwritten within 30 days at most."
+      }
+    },
+    "policyLink": "Read the Privacy Policy",
+    "deleteLink": "How to delete your account"
   },
   "faq": {
-    "eyebrow": "Frequently asked",
-    "title": "What people ask us",
-    "items": [
-      {
-        "q": "Is it really free?",
-        "a": "Yes. The current version is free and ad-free. If we ever launch a premium plan, what you have today stays free."
+    "eyebrow": "FAQ",
+    "title": "What people usually ask us",
+    "items": {
+      "cost": {
+        "question": "How much does it cost?",
+        "answer": "It's free today. Later there may be paid premium features. If that happens, we'll tell you the price and what's included first, payments would go through the App Store or Google Play, and we'll never charge you without your explicit consent."
       },
-      {
-        "q": "Do I need to connect my bank?",
-        "a": "No. GoalsPay never connects to any bank. You decide what to deposit and the app tracks it."
+      "bank": {
+        "question": "Do I have to connect my bank?",
+        "answer": "No. GoalsPay doesn't connect to banks, cards or payment methods, and it doesn't move money. Income, bills and deposits are records you type in yourself."
       },
-      {
-        "q": "Is my currency supported?",
-        "a": "We support 14 currencies: USD, EUR, MXN, GTQ, NIO, CRC, PAB, HNL, BRL, VEF, DOP, ARS, PYG and CLP."
+      "currencies": {
+        "question": "Which currencies can I use?",
+        "answer": "Fourteen: US dollar (USD), euro (EUR), quetzal (GTQ), Mexican peso (MXN), córdoba (NIO), Costa Rican colón (CRC), balboa (PAB), lempira (HNL), Brazilian real (BRL), bolívar (VEF), Dominican peso (DOP), Argentine peso (ARS), guaraní (PYG) and Chilean peso (CLP)."
       },
-      {
-        "q": "What if I change phones?",
-        "a": "You can enable backup to your own Google Drive and restore your data on the new device."
+      "newPhone": {
+        "question": "What happens if I change phones?",
+        "answer": "Install the app on the new one and sign in with your account. Your goals and movements are in the account, so they show up the way you left them."
       },
-      {
-        "q": "Does it work offline?",
-        "a": "Yes. All information lives on your phone. You only need the internet if you enable backup."
+      "internet": {
+        "question": "Does it work offline?",
+        "answer": "No. The app needs a connection to read and save your data, because it lives in your account and not on the phone."
       },
-      {
-        "q": "When will it be on Play Store and App Store?",
-        "a": "Publication is in progress. For now you can download the APK directly from here."
+      "deleteAccount": {
+        "question": "How do I delete my account?",
+        "answer": "In the app, go to Settings → Delete account. Your data is deleted right away and backups are overwritten within 30 days at most. If you can't sign in, email <mail>{email}</mail> from your account's email address. <link>See all the details</link>."
+      },
+      "availability": {
+        "question": "Where do I get it?",
+        "answer": "For now, as an Android APK from this page. We're getting ready to publish on Google Play and the App Store. The iPhone version will arrive with the App Store."
+      },
+      "whoCanUse": {
+        "question": "Who can use it?",
+        "answer": "People aged 18 and over. It's a tool to organize your money: it isn't a bank and it doesn't give financial advice."
       }
-    ]
-  },
-  "finalCta": {
-    "title": "Start saving today in under 30 seconds.",
-    "subtitle": "Download the APK, open the app, create your first goal. That simple.",
-    "cta": "Download APK",
-    "hint": "No signup · No bank connection · No ads"
-  },
-  "footer": {
-    "tagline": "Save. Progress. Achieve.",
-    "madeIn": "© {year} GoalsPay. Made with love in LATAM.",
-    "groups": {
-      "product": "Product",
-      "legal": "Legal",
-      "follow": "Follow"
-    },
-    "links": {
-      "features": "Features",
-      "modes": "Modes",
-      "faq": "FAQ",
-      "download": "Download",
-      "privacy": "Privacy",
-      "terms": "Terms"
     }
   },
-  "downloadToast": {
-    "missingTitle": "Download not available yet",
-    "missingBody": "The APK will be available very soon. Check back in a few days."
+  "finalCta": {
+    "title": "Start with your first goal.",
+    "subtitle": "Download the app, create your account and mark your first income. From there you'll know how much you can set aside."
+  },
+  "footer": {
+    "tagline": "Savings goals and monthly finances, with one balance.",
+    "productGroup": "Product",
+    "legalGroup": "Legal",
+    "controller": "Data controller",
+    "copyright": "© {year} GoalsPay"
   },
   "legal": {
-    "privacy": {
-      "title": "Privacy Policy",
-      "updated": "Last updated: 2026-05-18",
-      "body": "GoalsPay does not collect, store or transmit your financial data to any server. Every piece of information you record (goals, deposits, incomes, expenses) lives exclusively on your device. The only exchange with external services happens when you opt in to the Google Drive backup — and it goes straight to YOUR account, not ours. We don't use identifying analytics, we don't ship ad SDKs, we don't share data with third parties. Questions? Email contact@goalspay.app."
+    "labels": {
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "deleteAccount": "Delete account"
     },
-    "terms": {
-      "title": "Terms of Use",
-      "updated": "Last updated: 2026-05-18",
-      "body": "GoalsPay is offered as-is, free and without warranties. It is not a substitute for professional financial advice. You are responsible for your saving decisions. The app may stop receiving updates at any time. Questions? Email contact@goalspay.app."
+    "eyebrow": "Legal document",
+    "tocTitle": "In this document",
+    "version": "Version",
+    "updated": "Last updated",
+    "tableRegion": "Table: {label}",
+    "otherDocuments": "Other documents",
+    "backToTop": "Back to top"
+  },
+  "mockups": {
+    "goalsHome": {
+      "label": "Illustration: Goals home screen with total savings of {total} and two goals.",
+      "greeting": "Hi, Ana",
+      "title": "Your goals",
+      "streak": "{days} days",
+      "totalSaved": "Total savings",
+      "thisMonth": "{amount} this month",
+      "newGoal": "New goal",
+      "progress": "{current} of {target}",
+      "goals": {
+        "laptop": "Laptop for college",
+        "emergency": "Emergency fund",
+        "trip": "Trip to Corn Island"
+      }
+    },
+    "goalDetail": {
+      "label": "Illustration: the goal “Laptop for college” at {percent}%, with its latest movements.",
+      "name": "Laptop for college",
+      "category": "Education",
+      "pace": "You need {perWeek}/week · {perDay}/day for {days} days.",
+      "movementsTitle": "Movements",
+      "deposit": "Deposit",
+      "priorSavings": "Prior savings",
+      "depositButton": "Deposit",
+      "movements": {
+        "fortnight": "Paycheck",
+        "bonus": "Bonus",
+        "extra": "Extra savings",
+        "prior": "What I already had"
+      }
+    },
+    "finance": {
+      "label": "Illustration: available balance of {available}, broken down into money in, money out and goals.",
+      "balance": "Available balance",
+      "moneyIn": "Money in",
+      "moneyOut": "Money out",
+      "inGoals": "In goals",
+      "opening": "Opening {amount}",
+      "recurring": "Recurring {amount}",
+      "oneOff": "Extra {amount}",
+      "deposited": "Deposited {amount}",
+      "withdrawn": "Withdrawn {amount}"
+    },
+    "monthPlan": {
+      "label": "Illustration: September plan with the salary received, three bills paid, one pending and one skipped.",
+      "title": "Your month, Ana",
+      "month": "September",
+      "incomes": "Income",
+      "expenses": "Bills",
+      "expensesSummary": "{paid} of {total} paid · {skipped} skipped",
+      "day": "Day {day}",
+      "rows": {
+        "salary": "Salary",
+        "rent": "Rent",
+        "groceries": "Groceries",
+        "internet": "Internet",
+        "power": "Electricity",
+        "gym": "Gym"
+      },
+      "status": {
+        "received": "Received",
+        "paid": "Paid",
+        "pending": "Pending",
+        "skipped": "Skipped"
+      }
+    },
+    "streak": {
+      "title": "{days} days in a row",
+      "caption": "Your best streak so far."
+    },
+    "opening": {
+      "openingLabel": "Opening balance",
+      "openingNote": "Adds to your balance",
+      "priorLabel": "Prior savings",
+      "priorNote": "Goes into the goal, not the balance"
+    },
+    "oneOff": {
+      "income": "Sold a bike",
+      "expense": "A gift",
+      "incomeAmount": "+ {amount}",
+      "expenseAmount": "− {amount}"
+    },
+    "widget": {
+      "label": "Illustration: Android widget with total savings of {total}.",
+      "total": "Total savings",
+      "goals": "{count, plural, one {# goal in progress} other {# goals in progress}}"
+    },
+    "analytics": {
+      "label": "Illustration: money in and money out bars for the last six months.",
+      "moneyIn": "Money in",
+      "moneyOut": "Money out"
+    },
+    "reminders": {
+      "label": "Illustration: a streak reminder and the app lock turned on.",
+      "reminderTitle": "Reminder · 8:00 PM",
+      "reminderBody": "Log your savings to keep your streak alive.",
+      "dueTitle": "Due today: Electricity",
+      "dueBody": "{amount}",
+      "lock": "App lock"
+    },
+    "balanceRules": {
+      "noDouble": "No duplicates",
+      "blocked": "You can't save more than you have"
     }
   }
 }

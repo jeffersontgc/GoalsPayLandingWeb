@@ -1,176 +1,216 @@
 # GoalsPay Landing — Design System (MASTER)
 
-*Generated from ui-ux-pro-max product type 91 "Personal Finance Tracker" + brand colors heredados de `mobile-app/src/utils/colors.ts` (palette dark).*
-*Visual direction elegida: **Fintech moderno oscuro + acentos neón/glow**.*
+Direction: a combination of three skills from awesome-design-skills, on top of the GoalsPay design system.
+- **storytelling** sets the page's narrative arc.
+- **bento** sets the modular grid for features.
+- **premium** sets the finish: precise spacing, typographic restraint and generous whitespace.
+
+**The palette, fonts and logo of the three skills are discarded.** Bento brings peach and Inter, premium Inter, and storytelling Abril Fatface. **The GoalsPay system always wins:** `../../GoalsPay Design System.dc.html` and `../app/src/utils/{colors,theme,typography,brandLogo}.ts`.
+
+> **Design intent, in one sentence:** tell, in five clear chapters, how GoalsPay turns "I don't know how much I can save" into "I know how much I have, and every deposit gets me closer", with the calm and precision of a premium product and features presented as an orderly bento.
 
 ---
 
-## 1. Visual identity
+## 1. Context and goals
 
-| Aspecto | Decisión | Razón |
-|---------|----------|-------|
-| Modo principal | **Dark-first** (con toggle a light) | Coherente con splash `#0b1120` de la app y con vertical fintech/crypto |
-| Estilo base | **Glassmorphism + Dark Mode (OLED)** | Recomendación oficial ui-ux-pro-max para Personal Finance Tracker |
-| Estilos secundarios | Flat sections, bento grid para features | Storytelling visual escaneable |
-| Acentos | Neón verde menta (success/progress) + glow violeta | Refuerza "racha" y "logros" |
+- **The page's only job:** for someone in Latin America who wants to save to understand the real balance connected to their goals, trust it, and download the app.
+- **Primary metric:** a tap on "Descargar". **Secondary:** reaching chapter 3 (the balance).
+- **Audience:** adults 18 and older, on mobile first (≥ 70 % of traffic in LATAM). Spanish first, English second.
+- **Truth over sales:** no claim the app can't prove. No "3x", no user counts, no testimonials, no ratings.
 
-## 2. Color tokens
+## 2. Tokens and foundations (GoalsPay, the only allowed source)
 
-Usar como CSS variables / Tailwind theme. Nada de hex sueltos en componentes.
+### 2.1 Color: CSS variables in `src/styles/globals.css`. Literal hex values in components are forbidden.
 
-```css
-:root {
-  /* Surfaces (dark-first) */
-  --bg-base:        #07091a;   /* deeper than app splash, para hero cinematográfico */
-  --bg-surface:     #0b1120;   /* = app splash */
-  --bg-surface-alt: #111827;   /* = app dark surface */
-  --bg-surface-2:   #1e293b;
-  --bg-elevated:    rgba(255, 255, 255, 0.04);   /* glass cards */
-  --bg-elevated-2:  rgba(255, 255, 255, 0.06);
-  --border-soft:    rgba(255, 255, 255, 0.08);
-  --border-strong:  rgba(255, 255, 255, 0.16);
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| `--bg` | `#F6F8FB` | `#0B0F19` | Page background |
+| `--surface` | `#FFFFFF` | `#111827` | Bento tiles, cards |
+| `--surface-2` | `#F6F8FB` | `#1F2937` | Tiles inside tiles, device mockups |
+| `--ink` (fixed navy) | `#111827` | `#111827` | "Chapter" bands, the hero and the final CTA in both themes |
+| `--border` | `#E3E8EF` | `#273142` | Dividers. A border never carries meaning on its own |
+| `--text` | `#111827` | `#F6F8FB` | Main text |
+| `--text-2` | `#55627A` | `#C7CBD6` | Secondary text |
+| `--text-3` | `#667286` | `#8A96A8` | Metadata. In light mode `#8A96A8` is only for decoration |
+| `--blue` | `#4C6FFF` | `#4C6FFF` | The pulse, progress bars, chart fills. **Not for small text** |
+| `--blue-text` | `#3452E0` | `#7B93FF` | Links, the eyebrow, text accents |
+| `--primary` / `--on-primary` | `#3452E0` / `#FFFFFF` | same | Primary button |
+| `--secondary` / `--on-secondary` | `#111827` / `#FFFFFF` | `#F6F8FB` / `#111827` | Secondary button |
+| `--sun` | `#FFB547` | `#FFB547` | **Streaks and achievements only** |
+| `--danger-text` | `#C4363B` | `#FF6B6F` | Errors, negative balance |
+| Tags | from `colors.ts` (`tags.blue/sun/error/muted`) | from `colors.ts` | Pills |
 
-  /* Text */
-  --text-primary:   #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted:     #94a3b8;
-  --text-inverse:   #0f172a;
+On a navy band, accent text uses `#7B93FF` (4.24:1 is not enough for `#4C6FFF`).
 
-  /* Brand */
-  --brand-500:      #6366f1;   /* indigo principal */
-  --brand-400:      #818cf8;
-  --brand-300:      #a5b4fc;
-  --brand-glow:     rgba(99, 102, 241, 0.45);
+### 2.2 Typography: `next/font/google`, which self-hosts at build time
 
-  /* Accent (progreso, racha, éxito) */
-  --accent-500:     #22d3a6;   /* mint neón, ≈ #4ade80 darker chroma */
-  --accent-400:     #4ade80;   /* = app success dark */
-  --accent-glow:    rgba(34, 211, 166, 0.45);
+| Role | Font | Desktop / Mobile | Weight | Notes |
+|---|---|---|---|---|
+| Wordmark | Syncopate | — | 700 | **Only** in the logo |
+| Display, chapter titles | Sora | 64 / 40 | 700 | `letter-spacing: -0.02em`, `text-wrap: balance` |
+| H2 | Sora | 40 / 30 | 700 | |
+| H3, tile titles | Sora | 24 / 20 | 600 | |
+| Figures | Sora | 48–32 | 600 | `font-variant-numeric: tabular-nums` |
+| Body | DM Sans | 18 / 16 | 400 | `line-height: 1.6`, max 65 characters |
+| Small | DM Sans | 14 | 500 | |
+| Eyebrow | DM Sans | 13 | 700 | Uppercase, `letter-spacing: 0.12em`, `--blue-text` |
 
-  /* Semantic */
-  --success:        #4ade80;
-  --warning:        #fbbf24;
-  --danger:         #f87171;
-  --info:           #60a5fa;
+The **premium** flavor comes from restraint: at most 3 sizes per viewport, weights limited to 400/600/700, and no italics in headings.
 
-  /* Gradients */
-  --grad-hero:      radial-gradient(1200px 600px at 20% 0%, rgba(99,102,241,0.25), transparent 60%),
-                    radial-gradient(900px 500px at 80% 10%, rgba(34,211,166,0.18), transparent 60%);
-  --grad-cta:       linear-gradient(135deg, #6366f1 0%, #22d3a6 100%);
-  --grad-card:      linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-}
+### 2.3 Spacing, radii, elevation
 
-[data-theme="light"] {
-  --bg-base:        #f8fafc;
-  --bg-surface:     #ffffff;
-  --bg-surface-alt: #f1f5f9;
-  --bg-elevated:    #ffffff;
-  --border-soft:    #e2e8f0;
-  --border-strong:  #cbd5e1;
-  --text-primary:   #0f172a;
-  --text-secondary: #475569;
-  --text-muted:     #94a3b8;
-}
-```
+- **Spacing:** 4-point scale `4 8 12 16 24 32 48 64 96 128`. Between chapters: **128 desktop / 96 mobile**. Inside a tile: 24–32. Bento gap: **16 desktop / 12 mobile**.
+- **Radii:** chips 8, buttons and fields 14, **bento tiles 20**, large chapter cards 28, tags 999.
+- **Elevation:** the premium look calls for almost none. Tiles separate by surface color, not by shadow. Mockups get a single shadow: `0 24px 64px -24px rgb(17 24 39 / 0.25)`. No glassmorphism, no neon glow, no blur.
+- **Content width:** 1200 max, side gutter 24 desktop / 16 mobile.
 
-Contraste validado: `--text-primary` sobre `--bg-base` = 16.4:1 (AAA). `--accent-500` sobre `--bg-base` = 8.1:1.
+### 2.4 Motion
 
-## 3. Typography
+- **Duration** 200–400 ms, `cubic-bezier(0.2, 0.8, 0.2, 1)`. Elements enter with **opacity + translateY(12px)** only, once, when 30 % of the element is visible.
+- **The pulse draws itself** (`stroke-dashoffset`) in the hero and at the start of the balance chapter: the brand's narrative signature, borrowed from M1 in the app.
+- **`prefers-reduced-motion: reduce`:** everything shows in its final state, with no transitions. **The page is complete at rest:** nothing starts at `opacity: 0` waiting for JavaScript.
 
-| Rol | Familia | Peso | Tamaño desktop | Tamaño mobile | Tracking |
-|-----|---------|------|----------------|---------------|----------|
-| Display (hero) | **Inter** (variable) | 700 | 64–80px | 40–48px | -0.03em |
-| H1 | Inter | 700 | 48px | 32px | -0.02em |
-| H2 | Inter | 700 | 36px | 28px | -0.02em |
-| H3 | Inter | 600 | 24px | 20px | -0.01em |
-| Body L | Inter | 400 | 18px | 17px | 0 |
-| Body | Inter | 400 | 16px | 16px | 0 |
-| Caption | Inter | 500 | 13px | 13px | 0.02em |
-| Mono / números | **JetBrains Mono** | 500 | inherits | inherits | tabular |
+## 3. Narrative structure (storytelling)
 
-Razón: una sola familia variable mantiene bundle <100kb y consistencia. JetBrains Mono solo para mockups de cifras (currency, racha 12d, etc.).
+Five chapters plus a close. Each chapter has: an **eyebrow with its number** ("01 · El problema"), a **title that is a sentence the user would say**, at most **two lines of text**, and **one visual that proves the claim**.
 
-`font-display: swap`. Preload solo Inter 400 + 700.
+| # | Chapter | Promise (title, to be refined with humanizer) | Proof visual | Layout |
+|---|---|---|---|---|
+| 0 | **Hero** | "Sabes cuánto tienes. Sabes cuánto te falta." | Phone with the goals home ("Ahorro total" card + 2 goals); the pulse draws itself | Navy band, text left and phone right; stacked on mobile |
+| 1 | **The problem** | "Ahorrar sin saber cuánto te sobra es adivinar." | Three short phrases from real life: "¿Me alcanza para abonar?", "Pagué el alquiler… ¿o no?", "Abono y al final del mes no cuadra" | Light, centered, lots of whitespace |
+| 2 | **The balance** (key differentiator) | "Un balance real, conectado a tus metas." | Animated diagram: income received → paid expenses → available → goal. Real figures in a LATAM currency. Shows the block: "No puedes abonar dinero que no tienes" | Large card on `--surface`, a 3-step diagram |
+| 3 | **Two modes** | "Finanzas para tu mes. Metas para lo que viene." | Two phones side by side: the Finance month plan (received/paid/skipped) and a goal with deposits | Tabs on desktop, sequential stack on mobile |
+| 4 | **Everything else** (bento) | "Hecho para el día a día." | Bento grid (see §4.3) | Bento |
+| 5 | **Trust** | "Tus datos, con reglas claras." | List of verifiable facts: HTTPS, you delete your account from the app, we don't sell data, no bank connection, biometric lock | Navy band, 2 columns |
+| — | **FAQ** | "Lo que suelen preguntarnos" | Accordion | Light, 720 width |
+| — | **Final CTA** | "Empieza con tu primera meta." | Pulse + download button | Navy band |
+| — | **Footer** | Logo, links, legal, controller | — | `--surface` |
 
-## 4. Spacing & layout
+**Story rules.** Each chapter answers the doubt the previous one raises (problem → how? → what else? → can I trust it? → how do I start?). The **"Descargar" CTA appears 3 times:** the hero, after chapter 2 and the close.
 
-- Sistema 4pt: `4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128`.
-- Container: `max-w-6xl` (1152px) en desktop, `px-5` mobile → `px-8` tablet.
-- Section vertical rhythm: `py-24 md:py-32` para secciones principales; `py-16` para secundarias.
-- Card radius: `rounded-2xl` (16px) para tarjetas grandes, `rounded-xl` para chips.
-- Border style: 1px sólido `--border-soft` + sombra interna sutil para glass.
+## 4. Component rules
 
-## 5. Effects
+### 4.1 Button
+- **Anatomy:** label, plus an optional left icon (lucide, stroke 1.5, 20px).
+- **Sizes:** **height 52 / horizontal padding 24** (large); 44 / 20 (nav).
+- **Variants:**
+  - **primary** `--primary`: one per viewport, for downloading.
+  - **secondary** `--secondary`.
+  - **ghost**: text in `--blue-text`.
+  - **store**: an outline with the store logo and "Próximamente".
+- **States:**
+  - **default**
+  - **hover:** 8 % darker or lighter, no movement
+  - **focus-visible:** a 2px `--blue-text` ring offset by 2px
+  - **active:** `scale(0.98)`
+  - **disabled:** 0.5 opacity plus `aria-disabled`
+  - **loading:** spinner plus the label, `aria-busy`
+- **Must** have a visible label; icon-only only with an `aria-label`. **Don't:** two primary buttons side by side.
 
-| Efecto | Uso | Implementación |
-|--------|-----|----------------|
-| Glass card | Tarjetas de features y testimonios | `backdrop-blur-xl`, `bg-white/[0.04]`, `border border-white/10` |
-| Glow CTA | Botón primario, hero | `box-shadow: 0 0 40px var(--brand-glow)` |
-| Spotlight cursor | Hero background | Gradient radial siguiendo cursor (Framer Motion) |
-| Grid background | Sección hero | SVG dot/grid con `mask-image: radial-gradient` |
-| Aurora gradient | Detrás del hero | `--grad-hero`, animado lento con `bg-position` |
-| Sombras | Solo en cards elevadas | `0 20px 60px -20px rgba(0,0,0,0.6)` |
+### 4.2 Chapter
+- **Anatomy:** eyebrow → H2 → lead → visual.
+- **Variants:** `light` (on `--bg`) and `ink` (fixed navy, white text, `#7B93FF` accent).
+- **Must:** use a `section` with `aria-labelledby` pointing to its H2. Light and ink chapters alternate, never two ink bands in a row.
 
-## 6. Motion (Framer Motion)
+### 4.3 Bento grid
+- **Grid:** desktop is **4 columns × auto rows of 200px min**; tablet 2 columns; **mobile 1 column** in reading order.
+- **Tile sizes:**
+  - `XL` = 2×2, at most one per grid
+  - `W` = 2×1
+  - `T` = 1×2
+  - `S` = 1×1
+- **Proposed composition** (8 tiles):
+  - `XL` **real balance + no duplicates**, with a mini balance card
+  - `W` **opening balance and prior savings**
+  - `T` **streaks and achievements**, the only tile in `--sun`
+  - `S` **one-off movements**
+  - `S` **14 LATAM currencies**, with the flags of the supported currencies
+  - `W` **Finance analytics and history**, with a mini bar chart
+  - `S` **Android widget**
+  - `S` **reminders + biometric lock**
+- **Tile anatomy:** an icon in a 40px square (radius 12) → a Sora 600 20 title → 1–2 lines of `--text-2` text → an optional mini visual anchored to the bottom.
+- **States:** tiles are **not interactive** by default. If one becomes a link: hover raises the border to `--blue-text`, focus-visible gets the ring, and the whole tile is one `<a>`.
+- **Must:** all tiles share the same internal padding (24), and none is left half empty. **Don't:** mix more than 3 sizes, put a tile's text at 12px, or use a bento grid with fewer than 5 tiles.
 
-- Tokens de duración: `fast 0.18s`, `base 0.28s`, `slow 0.42s`. Easing `[0.22, 1, 0.36, 1]` (out-expo).
-- Entradas de sección: `whileInView`, `y: 24 → 0`, `opacity: 0 → 1`, stagger 60ms.
-- Hover en tarjetas: `scale 1.0 → 1.02`, `border-color → brand`.
-- Botón CTA: leve scale 0.97 al press, glow pulsa cada 4s en idle.
-- Respeta `prefers-reduced-motion`: desactiva todos los `whileInView`/spotlight.
+### 4.4 Device mockup (an in-code recreation of the app)
+- A 9:19.5 frame, radius 44, 8px border in `#0B0F19`, a single shadow. **Contents are recreated with the app's tokens**: the "Ahorro total" card, the goal card with a 10px bar, the balance card with its breakdown, and the month plan rows.
+- **Sample data:** realistic, in **C$** or **US$**, with plausible names (e.g. "Laptop para la U", "Fondo de emergencia", "Alquiler", "Salario").
+- **Accessibility:** `role="img"` plus an `aria-label` describing it ("Ilustración: pantalla de metas con un ahorro total de C$ 18 450"). Its contents are `aria-hidden`.
+- **Responsive:** 360px wide on desktop, `min(80vw, 300px)` on mobile, never clipped.
 
-## 7. Componentes base (shadcn/ui)
+### 4.5 Header and nav
+- Sticky at `top: 0` with a solid `--bg` background (no blur), and a bottom border only after scrolling.
+- Left: the logo, wordmark plus pulse; below 96px only the symbol. Center (desktop): anchors to the chapters. Right: the language switch, the theme toggle and a 44px "Descargar".
+- **Mobile:** a hamburger opens a Radix sheet. It has a focus trap, closes with Esc, and focus returns to the trigger.
 
-A instalar:
-`button`, `card`, `badge`, `accordion`, `tabs`, `sheet`, `dialog`, `dropdown-menu`, `tooltip`, `separator`, `navigation-menu`, `sonner`, `skeleton`.
+### 4.6 FAQ (accordion)
+- Radix Accordion with `type="single" collapsible`. The full question is the button, and an animated chevron (or none with reduced motion) marks the state. A 44px minimum target.
 
-Variantes custom de `button`:
-- `default` → gradient `--grad-cta` + glow
-- `secondary` → glass `bg-white/5 border border-white/10`
-- `ghost` → solo texto sobre dark
-- Sizes: `sm 36px`, `md 44px (default ≥ touch target)`, `lg 52px`, `xl 60px`
+### 4.7 Footer
+- The logo and tagline.
+- **Product:** the chapters.
+- **Legal:** Términos, Privacidad, Cookies and Eliminar cuenta, pointing to `/es/terminos.html`, etc.
+- **Controller:** "Jefferson José Quezada Irigoyen · Granada, Nicaragua · jeffersonirigoyen@gmail.com". Also the year and the language switch.
 
-## 8. Iconografía
+## 5. Accessibility (WCAG 2.2 AA, testable)
 
-- **Lucide React** (la app móvil ya usa lucide-react-native, garantiza consistencia visual).
-- Stroke 1.75px uniforme, tamaño 20/24/32.
-- Iconos de features: contenedor `48×48` con `bg-brand-500/10` + icono `text-brand-400`.
-- Cero emojis como íconos estructurales.
+| Criterion | How it's checked |
+|---|---|
+| Text contrast ≥ 4.5:1, large text and UI ≥ 3:1, in **both** themes and on ink bands | Contrast computed for each token pair; the list goes in the report |
+| Visible focus on everything interactive, never hidden behind the sticky header | Tab through the whole page; `scroll-margin-top` on the anchors |
+| A "Saltar al contenido" link first in the tab order | Manual |
+| A single `h1`, with chapter `h2`s in order | Heading outline |
+| `lang="es"` or `"en"` depending on the route | View source |
+| Reduced motion: no transitions, complete content | Emulated in DevTools |
+| Mockups and diagrams have an `aria-label` describing them | Screen reader |
+| 44×44px targets on mobile | Measured at 375px |
+| Usable at 200 % zoom with no horizontal scroll at 320px | Manual |
+| Color never carries meaning on its own (a negative balance has text and a sign) | Visual review |
 
-## 9. Imágenes / mockups
+## 6. Tone and copy
 
-- Screenshots de la app reales (capturas portrait), exportadas a WebP/AVIF con `next/image`.
-- Marco "device frame" en SVG (sin shadow Apple, propio minimal).
-- Lazy load below-the-fold, `width/height` declarados para CLS 0.
-- Si no hay capturas reales aún: placeholders gradient con label "Screenshot pendiente".
+- **Tone:** concise, confident, helpful. Second person "tú". Short sentences. Real numbers instead of adjectives.
+- **Run all the copy through the `humanizer` skill.** Forbidden: "revoluciona", "imparable", "potencia", "lleva tu X al siguiente nivel", em-dash chains, lists of three adjectives, and promises with no evidence.
 
-## 10. Anti-patterns (qué evitar)
+| ✅ Do | ❌ Don't |
+|---|---|
+| "No puedes abonar dinero que no tienes." | "La forma más inteligente de ahorrar." |
+| "Marcas tu salario como recibido y el balance sube." | "Potencia tus finanzas con IA." |
+| "Gratis. Si algún día hay un plan de pago, nunca se cobra sin que lo aceptes." | "Gratis para siempre." |
+| "Necesita internet: tus datos viven en tu cuenta." | "Funciona sin conexión." |
 
-- Emojis para íconos de navegación o features.
-- Más de 2 fuentes.
-- Hex hardcodeados en componentes (siempre via CSS var / tailwind theme).
-- Animaciones de >500ms en microinteracciones.
-- Pie chart con >5 categorías; preferir barras horizontales.
-- Touch targets <44px (incluye botones de social/footer).
-- Hover-only para info crítica (mobile no tiene hover).
-- Color como único indicador de estado.
+## 7. Anti-patterns (forbidden)
 
-## 11. Accesibilidad (gates)
+- Glassmorphism, neon glow, background blur, decorative purple-to-mint gradients: the old landing.
+- The palettes and fonts of the skills (peach `#FAD4C0`, Inter, Abril Fatface).
+- Literal hex in components, or `--blue` (`#4C6FFF`) as small text on white.
+- Screenshots or images with baked-in text.
+- Elements at `opacity: 0` waiting for an IntersectionObserver.
+- A hero at `100vh` that pushes the content below the fold on mobile.
+- Shadows on every tile.
+- Statistics, ratings, testimonials or press logos that don't exist.
+- Third-party trackers besides Vercel Analytics and Speed Insights, which are declared in the Cookie Policy.
+- Cookies other than `NEXT_LOCALE`; `localStorage` other than `theme`.
 
-- Contraste body ≥4.5:1, large text ≥3:1 verificado en ambos modos.
-- Focus visible 2px `--accent-400` outline + 2px offset en TODO interactivo.
-- Cero `outline: none` sin reemplazo.
-- Tab order = orden visual.
-- `aria-label` en iconos solos (cambio de idioma, toggle theme, social links).
-- Lang switcher usa `<button aria-pressed>`.
-- Skip link al inicio del body.
-- Respeta `prefers-reduced-motion` y `prefers-color-scheme`.
+## 8. Migrating from the current landing
 
-## 12. Performance gates
+| Old | New |
+|---|---|
+| `--brand-500 #6366f1`, `--accent-500 #22d3a6`, `--grad-*` | Remove; map to the §2.1 tokens |
+| `Hero`, `TrustStrip`, `FeatureBento`, `ModesShowcase`, `Achievements`, `Privacy`, `FAQ`, `FinalCTA` | Rewrite as the §3 chapters; reuse the logic (download, i18n), not the styles |
+| `DeviceFrame` + PNG | The coded mockup from §4.4 |
+| `privacy/` and `terms/` pages with a single paragraph | The legal pages generated from `../legal/*.md`, with redirects |
+| `public/goalspay-logo.png` | The `Logo` component (SVG) |
 
-- LCP <2.5s, CLS <0.1, INP <200ms.
-- Next.js App Router + RSC por defecto; client components solo donde hay interacción (motion, theme toggle, lang switcher, FAQ).
-- Imágenes `next/image` con `priority` solo en hero.
-- Fuentes `next/font` (Inter + JetBrains Mono) con `display: 'swap'`.
-- Sin librerías de iconos completas; tree-shake lucide.
-- Sin librerías de animación pesadas más allá de Framer Motion.
+## 9. QA checklist (code review)
+
+- [ ] `grep` finds no hex outside `globals.css` and the store logos.
+- [ ] No Inter, Abril Fatface or Google Fonts request in the built HTML.
+- [ ] Five chapters in the §3 order, with a numbered eyebrow and a single CTA per viewport.
+- [ ] A bento grid of 8 tiles, at most 3 sizes, readable in a single column at 375px.
+- [ ] Contrast table in both themes with every pair ≥ 4.5:1 (≥ 3:1 for large text).
+- [ ] Reduced motion: the page is complete and static.
+- [ ] Every copy line passed through humanizer; nothing unprovable.
+- [ ] Legal URLs `/es/{terminos,privacidad,cookies,eliminar-cuenta}.html` and `/en/{terms,privacy,cookies,delete-account}.html` return 200.
+- [ ] Only the `NEXT_LOCALE` cookie and the `theme` key in storage.
+- [ ] `yarn typecheck` with the probe, `yarn build` OK, and light/dark screenshots at 1280 and 375 reviewed.

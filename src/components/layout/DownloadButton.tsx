@@ -1,38 +1,30 @@
-"use client";
-
-import * as React from "react";
 import { Download } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Button, type ButtonProps } from "@/components/ui/button";
+import { APK_DOWNLOAD_PATH, ICON_STROKE_WIDTH } from "@/config/site";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface DownloadButtonProps extends Omit<ButtonProps, "children"> {
-  label?: string;
-  showIcon?: boolean;
+interface DownloadButtonProps {
+  /** El primario va una sola vez por vista; la cabecera usa el secundario. */
+  variant?: "primary" | "secondary";
+  size?: "md" | "sm";
+  /** "headerCta" es la versión corta ("Descargar") para la cabecera. */
+  labelKey?: "apk" | "headerCta";
+  className?: string;
 }
 
-export function DownloadButton({
-  label,
-  showIcon = true,
+/** Enlace al APK: /api/download redirige a APK_URL. */
+export const DownloadButton = ({
+  variant = "primary",
+  size = "md",
+  labelKey = "apk",
   className,
-  ...props
-}: DownloadButtonProps) {
-  const t = useTranslations("nav");
-  const text = label ?? t("download");
-
-  function handleClick() {
-    if (typeof window !== "undefined" && "plausible" in window) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).plausible?.("apk_download_click");
-    }
-  }
-
+}: DownloadButtonProps) => {
+  const t = useTranslations("download");
   return (
-    <Button asChild onClick={handleClick} className={cn(className)} {...props}>
-      <a href="/api/download" rel="nofollow noopener">
-        {showIcon && <Download />}
-        {text}
-      </a>
-    </Button>
+    <a href={APK_DOWNLOAD_PATH} rel="nofollow" className={cn(buttonVariants({ variant, size }), className)}>
+      <Download strokeWidth={ICON_STROKE_WIDTH} aria-hidden="true" />
+      {t(labelKey)}
+    </a>
   );
-}
+};

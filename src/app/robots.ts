@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { publicEnv } from "@/lib/env";
+import { getAbsoluteUrl } from "@/utils/seo";
 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: { userAgent: "*", allow: "/" },
-    sitemap: `${publicEnv.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
-  };
-}
+const robots = (): MetadataRoute.Robots => ({
+  rules: { userAgent: "*", allow: "/", disallow: "/api/" },
+  sitemap: getAbsoluteUrl("/sitemap.xml"),
+});
+
+export default robots;

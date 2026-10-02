@@ -1,24 +1,19 @@
-import type { AbstractIntlMessages } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
-import { defaultLocale, locales, type Locale } from "@/i18n/config";
+import { defaultLocale, isLocale, type Locale } from "@/i18n/config";
 import es from "../../messages/es.json";
 import en from "../../messages/en.json";
 
-const allMessages: Record<Locale, AbstractIntlMessages> = {
-  es: es as unknown as AbstractIntlMessages,
-  en: en as unknown as AbstractIntlMessages,
-};
+// El inglés tiene que tener exactamente las mismas claves que el español (y al revés).
+const englishMessages: IntlMessages = en;
+const spanishMessages: typeof en = es;
 
-function isLocale(value: string | undefined): value is Locale {
-  return !!value && (locales as readonly string[]).includes(value);
-}
+const allMessages: Record<Locale, IntlMessages> = {
+  es: spanishMessages,
+  en: englishMessages,
+};
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale;
   const locale: Locale = isLocale(requested) ? requested : defaultLocale;
-
-  return {
-    locale,
-    messages: allMessages[locale],
-  };
+  return { locale, messages: allMessages[locale] };
 });

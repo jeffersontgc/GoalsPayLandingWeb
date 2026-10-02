@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/sync-legal.mjs --if-present",
     "dev": "next dev",
+    "prebuild": "node scripts/sync-legal.mjs --if-present",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "legal:sync": "node scripts/sync-legal.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",
