@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { VercelToolbar } from "@vercel/toolbar/next";
 import { Providers } from "@/app/providers";
 import { BRAND_COLORS, BRAND_NAME } from "@/config/site";
 import { isLocale, locales } from "@/i18n/config";
@@ -60,6 +61,8 @@ interface LocaleLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
+const shouldShowToolbar = process.env.NODE_ENV === "development";
+
 const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
@@ -75,9 +78,11 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
         <Providers>{children}</Providers>
         <Analytics />
         <SpeedInsights />
+        {shouldShowToolbar && <VercelToolbar />}
       </body>
     </html>
   );
 };
 
 export default LocaleLayout;
+

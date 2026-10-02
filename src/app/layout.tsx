@@ -11,3 +11,4 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => children;
 
 export default RootLayout;
+
